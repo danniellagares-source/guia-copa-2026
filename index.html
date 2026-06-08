@@ -3,1119 +3,1199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia Copa do Mundo 2026 ⚽</title>
+<title>⚽ Guia Copa do Mundo 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap');
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #0a0e1a;
-    --bg2: #111827;
-    --bg3: #1a2235;
-    --surface: #1e2d40;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,255,255,0.15);
-    --text: #f0f4ff;
-    --text2: #94a3b8;
-    --text3: #64748b;
-    --accent: #3b82f6;
-    --accent2: #60a5fa;
-    --gold: #f59e0b;
-    --gold2: #fcd34d;
-    --green: #10b981;
-    --red: #ef4444;
-    --orange: #f97316;
-    --radius: 12px;
-    --radius-sm: 8px;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    line-height: 1.6;
-  }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    padding: 3rem 1.5rem 2rem;
-    text-align: center;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, #0f1d35 0%, #0a0e1a 100%);
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(245,158,11,0.3);
-    border-radius: 999px;
-    padding: 5px 14px;
-    margin-bottom: 1rem;
-    background: rgba(245,158,11,0.08);
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.15;
-    margin-bottom: 0.75rem;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent2);
-  }
-  .hero p {
-    font-size: 15px;
-    color: var(--text2);
-    max-width: 520px;
-    margin: 0 auto 1.5rem;
-  }
-  .route-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  .route-pill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text2);
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 5px 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-  .route-pill:hover, .route-pill.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
-  .route-pill .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  /* MAIN LAYOUT */
-  .container { max-width: 900px; margin: 0 auto; padding: 0 1.25rem 4rem; }
-
-  /* CITY SECTION */
-  .city-block {
-    margin-top: 2.5rem;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    background: var(--bg2);
-  }
-  .city-header {
-    padding: 1.5rem;
-    background: linear-gradient(135deg, var(--surface) 0%, var(--bg2) 100%);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-  .city-header::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    border-radius: 16px 16px 0 0;
-  }
-  .city-cdmx .city-header::after { background: linear-gradient(90deg, #10b981, #34d399); }
-  .city-houston .city-header::after { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
-  .city-dallas .city-header::after { background: linear-gradient(90deg, #ef4444, #f97316); }
-  .city-philly .city-header::after { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
-  .city-miami .city-header::after { background: linear-gradient(90deg, #a855f7, #ec4899); }
-
-  .city-header-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 1rem;
-  }
-  .city-name {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--text);
-  }
-  .city-hotel {
-    font-size: 12px;
-    color: var(--text3);
-    margin-top: 2px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .city-meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .meta-chip {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    color: var(--text2);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 10px;
-  }
-  .meta-chip svg { width: 13px; height: 13px; opacity: 0.7; }
-
-  /* TABS */
-  .tab-bar {
-    display: flex;
-    overflow-x: auto;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg2);
-    gap: 0;
-    scrollbar-width: none;
-  }
-  .tab-bar::-webkit-scrollbar { display: none; }
-  .tab-btn {
-    flex-shrink: 0;
-    padding: 12px 16px;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text3);
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .tab-btn:hover { color: var(--text2); }
-  .tab-btn.active { color: var(--accent2); border-bottom-color: var(--accent); }
-
-  /* PANELS */
-  .tab-content { padding: 1.5rem; }
-  .panel { display: none; animation: fadeIn 0.2s ease; }
-  .panel.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* CARDS */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 14px;
-  }
-  .card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.1rem 1.25rem;
-  }
-  .card-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent2);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-  .card-title svg { width: 15px; height: 15px; }
-  .card ul { list-style: none; }
-  .card ul li {
-    font-size: 13px;
-    color: var(--text2);
-    padding: 7px 0;
-    border-bottom: 1px solid var(--border);
-    line-height: 1.55;
-  }
-  .card ul li:last-child { border-bottom: none; padding-bottom: 0; }
-  .card ul li strong { color: var(--text); font-weight: 500; }
-
-  /* FAN FEST */
-  .fanfest-box {
-    background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(16,185,129,0.05) 100%);
-    border: 1px solid rgba(59,130,246,0.25);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-  }
-  .fanfest-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent2);
-    margin-bottom: 14px;
-  }
-  .fanfest-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .ff-item { }
-  .ff-label { font-size: 11px; color: var(--text3); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .ff-val { font-size: 13px; color: var(--text); font-weight: 500; }
-  .ff-desc { font-size: 13px; color: var(--text2); line-height: 1.6; padding-top: 12px; border-top: 1px solid var(--border); }
-  .ff-warn { font-size: 12px; color: #fbbf24; margin-top: 10px; padding: 8px 12px; background: rgba(251,191,36,0.08); border-radius: 6px; border: 1px solid rgba(251,191,36,0.2); }
-
-  /* TIPS */
-  .tips-list { display: flex; flex-direction: column; gap: 10px; }
-  .tip {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 12px 14px;
-    border-radius: var(--radius-sm);
-    background: var(--bg3);
-    border-left: 3px solid var(--accent);
-  }
-  .tip.warn { border-left-color: var(--gold); }
-  .tip.danger { border-left-color: var(--red); }
-  .tip.green { border-left-color: var(--green); }
-  .tip-icon { font-size: 18px; flex-shrink: 0; line-height: 1; margin-top: 1px; }
-  .tip-text { font-size: 13px; color: var(--text2); line-height: 1.6; }
-  .tip-text strong { color: var(--text); font-weight: 500; }
-
-  /* TRANSPORT */
-  .transport-list { display: flex; flex-direction: column; gap: 10px; }
-  .transport-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 12px 14px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-  }
-  .t-icon { font-size: 22px; flex-shrink: 0; }
-  .t-text { font-size: 13px; color: var(--text2); line-height: 1.6; }
-  .t-text strong { display: block; color: var(--text); font-weight: 600; font-size: 13px; margin-bottom: 2px; }
-
-  /* DIVIDER */
-  hr { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    border-top: 1px solid var(--border);
-    color: var(--text3);
-    font-size: 12px;
-  }
-  .footer a { color: var(--accent2); text-decoration: none; }
-
-  /* ANCHOR TARGET */
-  .anchor { scroll-margin-top: 20px; }
-
-  /* RESPONSIVE */
-  @media (max-width: 600px) {
-    .hero { padding: 2rem 1rem 1.5rem; }
-    .tab-content { padding: 1rem; }
-    .city-header { padding: 1.1rem; }
-    .card-grid { grid-template-columns: 1fr; }
-    .fanfest-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  /* PRINT */
-  @media print {
-    body { background: white; color: black; }
-    .tab-bar, .route-pills { display: none; }
-    .panel { display: block !important; }
-  }
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080d1a;--bg2:#0f1724;--bg3:#162035;--surface:#1c2a3e;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#eef2ff;--text2:#94a3b8;--text3:#5a7090;
+  --blue:#3b82f6;--blue2:#60a5fa;--gold:#f59e0b;--gold2:#fcd34d;
+  --green:#10b981;--green2:#34d399;--red:#ef4444;--red2:#fca5a5;
+  --orange:#f97316;--purple:#a855f7;--pink:#ec4899;
+  --r:12px;--r-sm:8px;--r-lg:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;font-size:15px}
+.hero{padding:2.5rem 1.25rem 2rem;text-align:center;background:linear-gradient(180deg,#0d1b33 0%,var(--bg) 100%);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(59,130,246,0.14),transparent 65%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(245,158,11,.3);border-radius:999px;padding:5px 14px;margin-bottom:1rem;background:rgba(245,158,11,.07)}
+.hero h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.9rem,5.5vw,3.2rem);font-weight:400;line-height:1.15;margin-bottom:.6rem}
+.hero h1 em{font-style:italic;color:var(--blue2)}
+.hero-sub{font-size:14px;color:var(--text2);max-width:500px;margin:0 auto 1.5rem}
+.top-nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:1.25rem}
+.top-btn{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text2);background:var(--bg3);border:1px solid var(--border2);border-radius:999px;padding:6px 14px;cursor:pointer;transition:all .18s;text-decoration:none;white-space:nowrap}
+.top-btn:hover,.top-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.top-btn .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.container{max-width:940px;margin:0 auto;padding:0 1.1rem 5rem}
+.city-block{margin-top:2.5rem;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:var(--bg2)}
+.city-header{padding:1.4rem 1.4rem 1.1rem;background:linear-gradient(135deg,var(--surface) 0%,var(--bg2) 100%);border-bottom:1px solid var(--border);position:relative}
+.city-header::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r-lg) var(--r-lg) 0 0}
+.city-cdmx .city-header::after{background:linear-gradient(90deg,#10b981,#34d399)}
+.city-houston .city-header::after{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.city-dallas .city-header::after{background:linear-gradient(90deg,#ef4444,#f97316)}
+.city-philly .city-header::after{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.city-miami .city-header::after{background:linear-gradient(90deg,#a855f7,#ec4899)}
+.global-header::after{background:linear-gradient(90deg,var(--gold),var(--orange),var(--red))}
+.city-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.55rem;font-weight:400;margin-bottom:4px}
+.city-hotel{font-size:12px;color:var(--text3);margin-bottom:.75rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:7px}
+.mc{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--text2);background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;padding:3px 9px}
+.tab-bar{display:flex;overflow-x:auto;border-bottom:1px solid var(--border);background:var(--bg2);scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tb{flex-shrink:0;padding:11px 14px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;color:var(--text3);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .18s;white-space:nowrap}
+.tb:hover{color:var(--text2)}
+.tb.active{color:var(--blue2);border-bottom-color:var(--blue)}
+.tab-content{padding:1.4rem}
+.panel{display:none;animation:fi .2s ease}
+.panel.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:12px}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.15rem}
+.card-head{font-size:12px;font-weight:600;color:var(--blue2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.card ul{list-style:none}
+.card ul li{font-size:13px;color:var(--text2);padding:6px 0;border-bottom:1px solid var(--border);line-height:1.55}
+.card ul li:last-child{border-bottom:none;padding-bottom:0}
+.card ul li strong{color:var(--text);font-weight:500}
+.card ul li a{color:var(--blue2);text-decoration:none;font-size:12px}
+.expand-btn{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:12px;color:var(--blue2);background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);border-radius:6px;padding:5px 11px;cursor:pointer;transition:all .15s}
+.expand-btn:hover{background:rgba(59,130,246,.2)}
+.expand-content{display:none;margin-top:10px;padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;color:var(--text2);line-height:1.7}
+.expand-content.open{display:block}
+.expand-content strong{color:var(--text);font-weight:500}
+.expand-content a{color:var(--blue2);text-decoration:none}
+.expand-content ul{margin:.4rem 0 .4rem 1rem;list-style:disc}
+.expand-content ul li{padding:2px 0;border:none}
+.ff-box{background:linear-gradient(135deg,rgba(59,130,246,.07),rgba(16,185,129,.04));border:1px solid rgba(59,130,246,.2);border-radius:var(--r);padding:1.25rem}
+.ff-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue2);margin-bottom:12px}
+.ff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:12px}
+.ff-item .ff-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.ff-item .ff-val{font-size:13px;color:var(--text);font-weight:500}
+.ff-desc{font-size:13px;color:var(--text2);line-height:1.65;padding-top:10px;border-top:1px solid var(--border)}
+.ff-warn{font-size:12px;color:#fbbf24;margin-top:10px;padding:8px 11px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-radius:6px}
+.tips{display:flex;flex-direction:column;gap:9px}
+.tip{display:flex;gap:11px;align-items:flex-start;padding:11px 13px;border-radius:var(--r-sm);background:var(--bg3);border-left:3px solid var(--blue)}
+.tip.warn{border-left-color:var(--gold)}
+.tip.danger{border-left-color:var(--red)}
+.tip.green{border-left-color:var(--green)}
+.tip-icon{font-size:18px;flex-shrink:0;line-height:1;margin-top:1px}
+.tip-text{font-size:13px;color:var(--text2);line-height:1.6}
+.tip-text strong{color:var(--text);font-weight:500}
+.proib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.proib-item{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.18);border-radius:var(--r-sm)}
+.proib-icon{font-size:18px;flex-shrink:0;line-height:1.2}
+.proib-text{font-size:13px;color:var(--text2);line-height:1.55}
+.proib-text strong{color:var(--red2);font-weight:500;display:block;margin-bottom:2px}
+.tlist{display:flex;flex-direction:column;gap:9px}
+.titem{display:flex;gap:11px;align-items:flex-start;padding:11px 13px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm)}
+.ticon{font-size:22px;flex-shrink:0}
+.ttext{font-size:13px;color:var(--text2);line-height:1.6}
+.ttext strong{display:block;color:var(--text);font-weight:600;font-size:13px;margin-bottom:2px}
+.jogo-list{display:flex;flex-direction:column;gap:9px}
+.jogo{padding:11px 13px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;gap:5px}
+.jogo-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.jogo-times{font-size:14px;font-weight:500;color:var(--text)}
+.jogo-badge{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.badge-group{background:rgba(59,130,246,.15);color:var(--blue2);border:1px solid rgba(59,130,246,.25)}
+.badge-r32{background:rgba(245,158,11,.15);color:var(--gold2);border:1px solid rgba(245,158,11,.25)}
+.badge-r16{background:rgba(239,68,68,.15);color:var(--red2);border:1px solid rgba(239,68,68,.25)}
+.badge-qf{background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.25)}
+.jogo-info{font-size:12px;color:var(--text3);display:flex;flex-wrap:wrap;gap:10px}
+.jogo-brasil{font-size:11px;color:var(--green2);margin-top:2px;font-weight:500}
+.cal-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem;align-items:center}
+.cal-filters label{font-size:12px;color:var(--text2)}
+.cal-filters select,.cal-filters input[type=date]{font-family:'DM Sans',sans-serif;font-size:12px;background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:var(--r-sm);padding:6px 10px;outline:none}
+.cal-filters button{font-family:'DM Sans',sans-serif;font-size:12px;background:var(--blue);color:#fff;border:none;border-radius:var(--r-sm);padding:7px 14px;cursor:pointer}
+.cal-day-group{margin-bottom:1.25rem}
+.cal-day-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.cal-match{display:grid;grid-template-columns:90px 1fr auto;gap:10px;align-items:center;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:7px}
+.cal-match.my-city{background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.25)}
+.cal-time{font-size:12px;color:var(--text2);line-height:1.4}
+.cal-time .brt{font-size:11px;color:var(--green2)}
+.cal-match-name{font-size:13px;font-weight:500;color:var(--text)}
+.cal-match-venue{font-size:11px;color:var(--text3);margin-top:1px}
+.cal-match-city{font-size:11px;color:var(--text2);margin-top:1px}
+.cal-badge-col{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+#no-results{display:none;text-align:center;padding:2rem;color:var(--text3);font-size:14px}
+.anchor{scroll-margin-top:16px}
+.footer{text-align:center;padding:2rem 1rem;border-top:1px solid var(--border);color:var(--text3);font-size:12px}
+.footer a{color:var(--blue2);text-decoration:none}
+hr{border:none;border-top:1px solid var(--border);margin:.9rem 0}
+@media(max-width:600px){
+  .hero{padding:2rem 1rem 1.5rem}
+  .tab-content{padding:1rem}
+  .city-header{padding:1rem}
+  .grid{grid-template-columns:1fr}
+  .ff-grid{grid-template-columns:1fr 1fr}
+  .cal-match{grid-template-columns:80px 1fr}
+  .cal-badge-col{display:none}
+}
 </style>
 </head>
 <body>
-
 <div class="hero">
-  <div class="hero-badge">⚽ Copa do Mundo FIFA 2026</div>
+  <div class="hero-eyebrow">⚽ Copa do Mundo FIFA 2026</div>
   <h1>Guia de <em>Viagem</em><br>Copa 2026</h1>
-  <p>5 cidades · 9 a 23 de junho · Informações de turismo, lazer, gastronomia, Fan Fest e dicas essenciais</p>
-  <div class="route-pills">
-    <a class="route-pill active" href="#cdmx"><span class="dot" style="background:#10b981"></span>🇲🇽 Cidade do México <span style="opacity:.5">9–14 jun</span></a>
-    <a class="route-pill" href="#houston"><span class="dot" style="background:#f59e0b"></span>🇺🇸 Houston <span style="opacity:.5">14–16 jun</span></a>
-    <a class="route-pill" href="#dallas"><span class="dot" style="background:#ef4444"></span>🇺🇸 Dallas <span style="opacity:.5">16–18 jun</span></a>
-    <a class="route-pill" href="#philly"><span class="dot" style="background:#3b82f6"></span>🇺🇸 Philadelphia <span style="opacity:.5">18–20 jun</span></a>
-    <a class="route-pill" href="#miami"><span class="dot" style="background:#a855f7"></span>🇺🇸 Miami <span style="opacity:.5">20–23 jun</span></a>
+  <p class="hero-sub">5 cidades · 9 a 23 de junho · Lazer, turismo, gastronomia, Fan Fests, jogos e dicas completas</p>
+  <div class="top-nav">
+    <a class="top-btn" href="#cdmx"><span class="dot" style="background:#10b981"></span>🇲🇽 México <span style="opacity:.5;font-size:11px">9–14jun</span></a>
+    <a class="top-btn" href="#houston"><span class="dot" style="background:#f59e0b"></span>🇺🇸 Houston <span style="opacity:.5;font-size:11px">14–16jun</span></a>
+    <a class="top-btn" href="#dallas"><span class="dot" style="background:#ef4444"></span>🇺🇸 Dallas <span style="opacity:.5;font-size:11px">16–18jun</span></a>
+    <a class="top-btn" href="#philly"><span class="dot" style="background:#3b82f6"></span>🇺🇸 Philadelphia <span style="opacity:.5;font-size:11px">18–20jun</span></a>
+    <a class="top-btn" href="#miami"><span class="dot" style="background:#a855f7"></span>🇺🇸 Miami <span style="opacity:.5;font-size:11px">20–23jun</span></a>
+    <a class="top-btn" href="#calendario"><span class="dot" style="background:var(--gold)"></span>📅 Calendário Completo</a>
   </div>
 </div>
-
 <div class="container">
-
-<!-- ============================================================ CDMX ============================================================ -->
+<!-- CDMX -->
 <div class="city-block city-cdmx anchor" id="cdmx">
   <div class="city-header">
-    <div class="city-header-top">
-      <div>
-        <div class="city-name">🇲🇽 Cidade do México</div>
-        <div class="city-hotel">🏨 Hotel Stella Maris</div>
-      </div>
-    </div>
-    <div class="city-meta-row">
-      <span class="meta-chip">📅 9 a 14 de junho</span>
-      <span class="meta-chip">🌡 18–24°C</span>
-      <span class="meta-chip">🌧 Chuvas à tarde possíveis</span>
-      <span class="meta-chip">⏰ Fuso CST (UTC-6)</span>
-      <span class="meta-chip">💵 Peso Mexicano (MXN)</span>
+    <div class="city-name">🇲🇽 Cidade do México</div>
+    <div class="city-hotel">🏨 Hotel Stella Maris · Centro Histórico</div>
+    <div class="meta-row">
+      <span class="mc">📅 9–14 jun</span><span class="mc">🌡 18–24°C · Chuvas à tarde</span>
+      <span class="mc">⏰ CST (UTC-6) · <strong>BRT -1h</strong></span><span class="mc">💵 Peso MXN</span>
     </div>
   </div>
-  <div class="tab-bar" id="tabs-cdmx">
-    <button class="tab-btn active" onclick="showTab('cdmx','lazer',this)">🎡 Lazer</button>
-    <button class="tab-btn" onclick="showTab('cdmx','turismo',this)">🏛 Turismo</button>
-    <button class="tab-btn" onclick="showTab('cdmx','comer',this)">🍽 Comer & Beber</button>
-    <button class="tab-btn" onclick="showTab('cdmx','bares',this)">🍹 Bares & Baladas</button>
-    <button class="tab-btn" onclick="showTab('cdmx','eventos',this)">🎵 Eventos</button>
-    <button class="tab-btn" onclick="showTab('cdmx','transporte',this)">🚇 Transporte</button>
-    <button class="tab-btn" onclick="showTab('cdmx','fanfest',this)">⚽ Fan Fest</button>
-    <button class="tab-btn" onclick="showTab('cdmx','dicas',this)">⚠ Dicas</button>
+  <div class="tab-bar">
+    <button class="tb active" onclick="tab(this,'cdmx','lazer')">🎡 Lazer</button>
+    <button class="tb" onclick="tab(this,'cdmx','turismo')">🏛 Turismo</button>
+    <button class="tb" onclick="tab(this,'cdmx','comer')">🍽 Comer</button>
+    <button class="tb" onclick="tab(this,'cdmx','bares')">🍹 Bares</button>
+    <button class="tb" onclick="tab(this,'cdmx','transporte')">🚇 Transporte</button>
+    <button class="tb" onclick="tab(this,'cdmx','fanfest')">⚽ Fan Fest</button>
+    <button class="tb" onclick="tab(this,'cdmx','jogos')">📅 Jogos</button>
+    <button class="tb" onclick="tab(this,'cdmx','proibido')">🚫 Proibido</button>
+    <button class="tb" onclick="tab(this,'cdmx','dicas')">💡 Dicas</button>
   </div>
   <div class="tab-content">
-
     <div class="panel active" id="cdmx-lazer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎠 Lazer & Diversão</div><ul>
-          <li><strong>Parque de Chapultepec</strong> — maior parque urbano da América Latina; lagos, zoológico gratuito e bosques</li>
-          <li><strong>Museu Nacional de Antropologia</strong> — dentro do parque, um dos melhores museus do mundo (entrada ~MXN 85)</li>
-          <li><strong>Lucha Libre</strong> — Arena México e Arena Coliseo: espetáculos imperdíveis ter/sex/dom (~MXN 80–300)</li>
-          <li><strong>Mercado de Artesanías La Ciudadela</strong> — compras de lembrança e artesanato perto do centro histórico</li>
-          <li><strong>Fronton México</strong> — shows e eventos noturnos no histórico salão art déco</li>
-        </ul></div>
-        <div class="card"><div class="card-title">⚽ Clima Copa</div><ul>
-          <li><strong>Estadio Azteca (Banorte)</strong> — sede da abertura da Copa; único estádio com 3 aberturas de Copa (1970, 1986, 2026)</li>
-          <li><strong>Zócalo Fan Fest</strong> — coração da festa mundialista com shows e telão gigante ao ar livre</li>
-          <li><strong>Fan Zones nas 16 alcaldías</strong> — transmissões públicas em todos os bairros da cidade</li>
-          <li><strong>Passeio pelo Centro Histórico</strong> — decoração especial da Copa por toda a região</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🎠 Lazer & Diversão</div><ul>
+          <li><strong>Parque de Chapultepec</strong> — maior parque urbano da AL; zoológico gratuito, bosques e lagos</li>
+          <li><strong>Museu Nacional de Antropologia</strong> — dentro do parque; um dos melhores do mundo (~MXN 85)</li>
+          <li><strong>Lucha Libre</strong> — Arena México e Coliseo; ter/sex/dom ~MXN 80–300</li>
+          <li><strong>Mercado La Ciudadela</strong> — artesanato e lembranças perto do Centro</li>
+          <li><strong>Fronton México</strong> — shows e eventos no histórico salão art déco</li>
+        </ul>
+        <button class="expand-btn">＋ Mais opções e horários detalhados</button>
+        <div class="expand-content">
+          <strong>Horários e preços completos:</strong><br>
+          Zoológico Chapultepec: gratuito · Ter–Dom 9h–16h30<br>
+          Museu Antropologia: MXN 85 · Ter–Dom 9h–19h<br>
+          Lucha Libre Arena México: sex 20h30 / dom 17h · <a href="https://www.cmll.com" target="_blank">cmll.com</a><br>
+          Castelo de Chapultepec: MXN 95 · Ter–Dom 9h–17h<br><br>
+          <strong>Mais opções:</strong>
+          <ul>
+            <li>Museu Tamayo Arte Contemporânea — Polanco, grátis sex</li>
+            <li>Cineteca Nacional — cinema art-house e exibições especiais</li>
+            <li>Mercado Jamaica — flores exóticas; começa antes do amanhecer</li>
+            <li>Museu do Caracol — história da Independência em Chapultepec</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-head">⚽ Copa & Estádio</div><ul>
+          <li><strong>Estadio Ciudad de México</strong> — único com 3 aberturas de Copa (1970/1986/2026); cap. 87.000</li>
+          <li><strong>Zócalo Fan Fest</strong> — maior Fan Fest da Copa; shows + telão gigante</li>
+          <li><strong>Fan Zones nas 16 alcaldías</strong> — transmissões em todos os bairros</li>
+        </ul>
+        <button class="expand-btn">＋ Como chegar no estádio</button>
+        <div class="expand-content">
+          Endereço: Calzada de Tlalpan 3465, Sta. Úrsula Coapa<br>
+          <strong>Melhor rota:</strong> Metrô L2 → Taxqueña → trem suburbano até Azteca<br>
+          Uber disponível mas trânsito intenso nos dias de jogo — chegue 2h antes<br>
+          <strong>Jogos confirmados:</strong> 11/jun · 17/jun · 24/jun · 30/jun · 5/jul
+        </div></div>
       </div>
     </div>
-
     <div class="panel" id="cdmx-turismo">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🏛 Pontos Turísticos</div><ul>
-          <li><strong>Zócalo (Plaza de la Constitución)</strong> — centro histórico, Catedral Metropolitana e Palácio Nacional</li>
-          <li><strong>Templo Mayor</strong> — ruínas astecas no coração do centro histórico; ao lado do Zócalo</li>
-          <li><strong>Teotihuacán</strong> — ~50 km: pirâmides do Sol e da Lua (ônibus ou tour saem do Terminal Norte)</li>
-          <li><strong>Xochimilco</strong> — passeio de trajinera (barco colorido) nos canais históricos; experiência única</li>
-          <li><strong>Coyoacán</strong> — bairro colonial, Casa Frida Kahlo, mercado e cafés charmosos</li>
-          <li><strong>Palácio de Bellas Artes</strong> — prédio de mármore com murais de Diego Rivera</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🗺 Bairros para Explorar</div><ul>
-          <li><strong>Polanco</strong> — sofisticado, restaurantes estrelados, lojas de grife e Anthropologique</li>
-          <li><strong>Roma Norte / Condesa</strong> — boêmios, cafeterias hipster, árvores frondosas e praças</li>
-          <li><strong>Centro Histórico</strong> — patrimônio UNESCO, próximo ao hotel Stella Maris</li>
-          <li><strong>La Merced</strong> — mercado tradicional enorme, autêntico e barato (vá de dia)</li>
-          <li><strong>Tlalpan</strong> — bairro histórico com pulquerías e atmosfera local</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🏛 Pontos Turísticos</div><ul>
+          <li><strong>Zócalo</strong> — Catedral Metropolitana e Palácio Nacional; ao lado do hotel</li>
+          <li><strong>Templo Mayor</strong> — ruínas astecas no Centro (MXN 95)</li>
+          <li><strong>Teotihuacán</strong> — pirâmides do Sol e da Lua, ~50 km</li>
+          <li><strong>Xochimilco</strong> — passeio de trajinera nos canais históricos</li>
+          <li><strong>Casa Frida Kahlo</strong> — Coyoacán; reserva obrigatória em museofridakahlo.org.mx</li>
+          <li><strong>Palácio de Bellas Artes</strong> — murais de Diego Rivera</li>
+        </ul>
+        <button class="expand-btn">＋ Preços e endereços</button>
+        <div class="expand-content">
+          <ul>
+            <li>Templo Mayor: MXN 95 · Guatemala 60 · Sex–Dom 9h–17h</li>
+            <li>Casa Frida Kahlo: MXN 270 · Londres 247, Coyoacán · Reserva OBRIGATÓRIA</li>
+            <li>Teotihuacán: MXN 95 · Ônibus da Terminal Norte ~MXN 60</li>
+            <li>Xochimilco: trajinera compartilhada ~MXN 50/hora; privativa MXN 400–600/hora</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="card-head">🗺 Bairros</div><ul>
+          <li><strong>Centro Histórico</strong> — patrimônio UNESCO; próximo ao Stella Maris</li>
+          <li><strong>Polanco</strong> — sofisticado; restaurantes estrelados e grife</li>
+          <li><strong>Roma Norte / Condesa</strong> — boêmio; cafeterias e praças</li>
+          <li><strong>Coyoacán</strong> — colonial; Frida Kahlo e mercado local</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="cdmx-comer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍽 Restaurantes Essenciais</div><ul>
-          <li><strong>El Cardenal</strong> — culinária mexicana tradicional, ótimo café da manhã no Centro</li>
-          <li><strong>Contramar</strong> — frutos do mar e peixe, Colonia Roma; reserva necessária</li>
-          <li><strong>Pujol</strong> — gourmet de Enrique Olvera, entre os melhores do mundo (reserva com semanas)</li>
-          <li><strong>Tacos de Canasta El Güero</strong> — tacos autênticos, baratos e deliciosos (~MXN 15/unid)</li>
-          <li><strong>Mercado de Medellín</strong> — variedade de comida local, frutas e produtos frescos</li>
-          <li><strong>Taquería Los Güeros</strong> — tacos de pastor ao pastor no espeto, 24h</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🥤 O Que Comer & Beber</div><ul>
-          <li><strong>Tacos al pastor</strong> — obrigatório; em qualquer taqueria de esquina a qualquer hora</li>
-          <li><strong>Mezcal & Tequila</strong> — peça no mínimo 2 provas antes de decidir qual comprar</li>
-          <li><strong>Michelada</strong> — cerveja com limão, sal e especiarias: refrescante para o calor</li>
-          <li><strong>Tamales e atole</strong> — café da manhã clássico em barracas de rua</li>
-          <li><strong>Agua de Jamaica</strong> — chá de hibisco gelado, disponível em qualquer mercado</li>
-          <li><strong>Pozole</strong> — sopa de milho com carne: prato típico e reconfortante</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍽 Restaurantes</div><ul>
+          <li><strong>El Cardenal</strong> — culinária mexicana tradicional; ótimo café da manhã no Centro</li>
+          <li><strong>Contramar</strong> — frutos do mar; Roma Norte; reserva necessária</li>
+          <li><strong>Pujol</strong> — entre os melhores do mundo; reserve com semanas de antecedência</li>
+          <li><strong>Tacos de Canasta El Güero</strong> — autêntico e barato (~MXN 15/unid)</li>
+          <li><strong>Mercado de Medellín</strong> — variedade de comida local e fresca</li>
+        </ul>
+        <button class="expand-btn">＋ Preços completos e como reservar</button>
+        <div class="expand-content">
+          💚 Barato (MXN 50–150): Tacos de rua, Mercado Medellín, barracas de tamales<br>
+          💛 Médio (MXN 150–400): El Cardenal, Fonda El Refugio, Maximo Bistrot<br>
+          🔴 Caro (MXN 400+): Contramar, Quintonil, Pujol (~MXN 2.500 menu degustação)<br><br>
+          Pujol: <a href="https://www.pujol.com.mx" target="_blank">pujol.com.mx</a> — 2–3 semanas antes<br>
+          Contramar: WhatsApp ou presencialmente de manhã cedo
+        </div></div>
+        <div class="card"><div class="card-head">🥤 O Que Provar</div><ul>
+          <li><strong>Tacos al pastor</strong> — obrigatório em qualquer taqueria de esquina</li>
+          <li><strong>Mezcal & Tequila</strong> — prove 2–3 antes de comprar</li>
+          <li><strong>Michelada</strong> — cerveja com limão, sal e especiarias</li>
+          <li><strong>Tamales e atole</strong> — café da manhã clássico nas ruas</li>
+          <li><strong>Agua de Jamaica</strong> — hibisco gelado em qualquer mercado</li>
+          <li><strong>Pozole</strong> — sopa de milho com carne; reconfortante</li>
+        </ul>
+        <button class="expand-btn">＋ Onde encontrar e preços</button>
+        <div class="expand-content">
+          <ul>
+            <li>Tacos: qualquer taqueria com fila = qualidade · MXN 15–25/unid</li>
+            <li>Mezcal premium: La Botica (Álvaro Obregón 106, Roma) · MXN 80–200/dose</li>
+            <li>Tamales: Tamales Doña Emi (Reforma 222) · MXN 35–50 · Sáb–Dom</li>
+            <li>Mercado San Juan (Ernesto Pugibet 21): onde chefs compram ingredientes especiais</li>
+          </ul>
+        </div></div>
       </div>
     </div>
-
     <div class="panel" id="cdmx-bares">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍹 Bares & Vida Noturna</div><ul>
-          <li><strong>Licorería Limantour</strong> — um dos melhores bares de coquetel do mundo, Roma Norte</li>
-          <li><strong>Bar Milán</strong> — clássico bar de pulquería com música ao vivo e ambiente histórico</li>
-          <li><strong>Xaman Bar</strong> — mezcales e coquetéis artesanais premium em Colonia Roma</li>
-          <li><strong>Área 51 / Patrick Miller</strong> — baladas eletrônicas e pop na Zona Rosa</li>
-          <li><strong>Zona Rosa</strong> — bairro LGBTQ+ friendly com muitos bares e opções noturnas</li>
-          <li><strong>Bourbon St. Condesa</strong> — rock e blues ao vivo até madrugada</li>
-          <li><strong>La Botica</strong> — barzinho de mezcal descontraído, Colonia Roma</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍹 Bares Top</div><ul>
+          <li><strong>Licorería Limantour</strong> — um dos melhores bares do mundo; Roma Norte</li>
+          <li><strong>Xaman Bar</strong> — mezcales artesanais premium; Colonia Roma</li>
+          <li><strong>Bar Milán</strong> — clássico pulquería com música ao vivo</li>
+          <li><strong>Hanky Panky</strong> — speakeasy secreto no Centro; reserva obrigatória</li>
+          <li><strong>La Botica</strong> — mezcal descontraído; Roma Norte</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços e horários</button>
+        <div class="expand-content">
+          <ul>
+            <li><strong>Limantour:</strong> Álvaro Obregón 106, Roma Norte · Seg–Qui 13h–2h, Sex–Dom 13h–3h</li>
+            <li><strong>Xaman:</strong> Orizaba 161, Roma Norte · 14h–2h · +100 mezcales na carta</li>
+            <li><strong>Hanky Panky:</strong> reserva em <a href="https://www.hankypankycdmx.com" target="_blank">hankypankycdmx.com</a> — experiência única</li>
+            <li><strong>Patrick Miller / Área 51:</strong> balada pop/eletrônica na Zona Rosa · 22h–6h · ~MXN 150 entrada</li>
+          </ul>
+        </div></div>
       </div>
     </div>
-
-    <div class="panel" id="cdmx-eventos">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎵 Shows & Eventos</div><ul>
-          <li><strong>Fan Fest Zócalo — Abertura (11 jun)</strong> — Maná, Alejandro Fernández, Belinda, Lila Downs, Los Ángeles Azules, J Balvin, Danny Ocean, Tyla</li>
-          <li><strong>Jogos no Estadio Azteca</strong> — incluindo a partida de abertura (11 jun: México vs. África do Sul). Confirme sua data em fifa.com</li>
-          <li><strong>Shows diários no Zócalo</strong> — apresentações culturais e musicais todas as noites durante a Copa</li>
-          <li><strong>Palácio de Bellas Artes</strong> — concertos de música clássica, dança e ópera</li>
-          <li><strong>Foro Sol / Palácio de los Deportes</strong> — shows internacionais durante o período da Copa</li>
-        </ul></div>
-      </div>
-    </div>
-
     <div class="panel" id="cdmx-transporte">
-      <div class="transport-list">
-        <div class="transport-item"><div class="t-icon">🚇</div><div class="t-text"><strong>Metrô da CDMX</strong>Rede ampla e barata (~MXN 5 por viagem). Estação mais próxima do Zócalo: Zócalo (linha 2). Evite horários de pico (7–9h / 18–20h) por segurança e superlotação. Atenção com bolsas.</div></div>
-        <div class="transport-item"><div class="t-icon">🚗</div><div class="t-text"><strong>Uber / DiDi / Cabify</strong>Seguros, baratos e amplamente disponíveis. Prefira sempre aos táxis de rua. Uber é o mais confiável. DiDi costuma ser mais barato em horários de pico.</div></div>
-        <div class="transport-item"><div class="t-icon">🚌</div><div class="t-text"><strong>Metrobús</strong>BRT rápido com corredores dedicados. Linha 1 pela Insurgentes cobre a maioria dos bairros turísticos. Tarjeta recarregável (~MXN 12 por viagem).</div></div>
-        <div class="transport-item"><div class="t-icon">🚲</div><div class="t-text"><strong>ECOBICI</strong>Bicicletas compartilhadas para curtas distâncias em Roma, Condesa e Polanco. App disponível. Passe diário acessível para turistas.</div></div>
-        <div class="transport-item"><div class="t-icon">🛺</div><div class="t-text"><strong>Dica para o Azteca</strong>Para ir ao estádio: Metrô linha 2 até Tasqueña, depois trem suburbano até Azteca ou shuttle oficial da FIFA. Evite ir de carro nos dias de jogo — trânsito caótico.</div></div>
+      <div class="tlist">
+        <div class="titem"><div class="ticon">🚇</div><div class="ttext"><strong>Metrô CDMX — ~MXN 5</strong>Rede ampla. L2 serve Zócalo (est. Zócalo) e Azteca (est. Taxqueña). Evite pico 7–9h/18–20h. Cartão recarregável recomendado.</div></div>
+        <div class="titem"><div class="ticon">🚗</div><div class="ttext"><strong>Uber / DiDi / Cabify</strong>Seguros e baratos. DiDi costuma ser mais barato. Nunca táxis de rua. Corrida média MXN 80–200.</div></div>
+        <div class="titem"><div class="ticon">🚌</div><div class="ttext"><strong>Metrobús — ~MXN 12</strong>BRT rápido. L1 pela Insurgentes conecta a maioria dos bairros turísticos. Cartão obrigatório (~MXN 15 nas estações).</div></div>
+        <div class="titem"><div class="ticon">🚲</div><div class="ttext"><strong>ECOBICI</strong>Bikes compartilhadas. App ECOBICI · Passe diário turista MXN 90 · +480 estações · Funciona em Roma, Condesa e Polanco.</div></div>
+        <div class="titem"><div class="ticon">⏰</div><div class="ttext"><strong>Fuso vs Brasil: CDMX = Brasil -1h</strong>CST (UTC-6) vs BRT (UTC-3). Jogo às 15h ET = 16h BRT = 14h CDMX</div></div>
       </div>
     </div>
-
     <div class="panel" id="cdmx-fanfest">
-      <div class="fanfest-box">
-        <div class="fanfest-title">⚽ FIFA Fan Festival™ Oficial — Cidade do México</div>
-        <div class="fanfest-grid">
-          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">Zócalo (Plaza de la Constitución)</div></div>
-          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">10 jun – 19 jul 2026 (39 dias)</div></div>
-          <div class="ff-item"><div class="ff-label">Horário</div><div class="ff-val">09h00 – 23h00</div></div>
-          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito — sem registro prévio</div></div>
+      <div class="ff-box">
+        <div class="ff-title">⚽ FIFA Fan Festival™ — Cidade do México</div>
+        <div class="ff-grid">
+          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">Zócalo — Plaza de la Constitución</div></div>
+          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">10 jun – 19 jul (39 dias)</div></div>
+          <div class="ff-item"><div class="ff-label">Horário</div><div class="ff-val">09h – 23h diariamente</div></div>
+          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito · Sem registro</div></div>
           <div class="ff-item"><div class="ff-label">Álcool</div><div class="ff-val">❌ Não vendido no local</div></div>
-          <div class="ff-item"><div class="ff-label">Acesso</div><div class="ff-val">Metrô Zócalo (L2) — poucos minutos</div></div>
+          <div class="ff-item"><div class="ff-label">Metrô</div><div class="ff-val">L2 estação Zócalo</div></div>
         </div>
-        <div class="ff-desc"><strong style="color:#60a5fa">O que terá:</strong> Telão LED gigante com jogos ao vivo · Shows musicais diários · Zona gastronômica · Atividades interativas de futebol · Produtos oficiais FIFA · Experiências culturais mexicanas · Ativações de patrocinadores · Conteúdo temático Copa<br><br><strong style="color:#60a5fa">Destaque:</strong> O Zócalo foi escolhido como a sede do Fan Fest mais ambiciosa de toda a Copa — "Templo Mayor do Futebol". Telão gigante, escenarios musicais e mais de 5 milhões de turistas esperados em CDMX durante o torneio.</div>
-        <div class="ff-warn">⚠ Atenção: Protestos de professores (CNTE) na região do Zócalo têm ocorrido próximos à abertura. O governo da CDMX informou que a situação será resolvida antes do início. Confirme a situação no dia em fontes locais antes de ir.</div>
+        <div class="ff-desc">Telão LED gigante · Shows musicais diários (abertura 11/jun: Maná, Belinda, J Balvin, Alejandro Fernández, Lila Downs, Los Ángeles Azules, Danny Ocean, Tyla) · Zona gastronômica · Atividades interativas · Produtos oficiais FIFA · Fan Fest mais ambicioso da Copa 2026<br><br>Site oficial: <a href="https://www.mexicocityfwc26.com.mx" target="_blank">mexicocityfwc26.com.mx</a></div>
+        <div class="ff-warn">⚠ Protestos de professores (CNTE) na região do Zócalo em andamento. Governo afirmou resolver antes da abertura. Confirme situação em fontes locais antes de ir.</div>
       </div>
     </div>
-
+    <div class="panel" id="cdmx-jogos">
+      <div class="jogo-list">
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇲🇽 México vs 🇿🇦 África do Sul</span><span class="jogo-badge badge-group">Grupo A</span></div><div class="jogo-info"><span>📅 11/jun (qui)</span><span>⏰ 14h local · 15h ET</span><span>🏟 Estadio Ciudad de México</span></div><div class="jogo-brasil">🇧🇷 Brasil: 16h00 BRT — ABERTURA DA COPA</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇺🇿 Uzbequistão vs 🇨🇴 Colômbia</span><span class="jogo-badge badge-group">Grupo K</span></div><div class="jogo-info"><span>📅 17/jun (ter)</span><span>⏰ 21h local · 22h ET</span><span>🏟 Estadio Ciudad de México</span></div><div class="jogo-brasil">🇧🇷 Brasil: 23h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇨🇿 Czechia vs 🇲🇽 México</span><span class="jogo-badge badge-group">Grupo A</span></div><div class="jogo-info"><span>📅 24/jun (ter)</span><span>⏰ 21h local · 22h ET</span><span>🏟 Estadio Ciudad de México</span></div><div class="jogo-brasil">🇧🇷 Brasil: 23h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">Oitavas — Vencedor A vs 3º C/E/F/H/I</span><span class="jogo-badge badge-r32">Oitavas de Final</span></div><div class="jogo-info"><span>📅 30/jun (ter)</span><span>⏰ 21h local · 22h ET</span><span>🏟 Estadio Ciudad de México</span></div><div class="jogo-brasil">🇧🇷 Brasil: 23h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">16 avos de final — TBD</span><span class="jogo-badge badge-r16">16 avos</span></div><div class="jogo-info"><span>📅 5/jul (dom)</span><span>⏰ 19h local · 20h ET</span><span>🏟 Estadio Ciudad de México</span></div><div class="jogo-brasil">🇧🇷 Brasil: 21h00 BRT</div></div>
+      </div>
+    </div>
+    <div class="panel" id="cdmx-proibido">
+      <div class="proib-grid">
+        <div class="proib-item"><div class="proib-icon">🚫</div><div class="proib-text"><strong>Álcool em público e no Fan Fest</strong>Proibido beber nas ruas. O Fan Fest do Zócalo não vende álcool.</div></div>
+        <div class="proib-item"><div class="proib-icon">📸</div><div class="proib-text"><strong>Fotos em cerimônias indígenas</strong>Fotografar sem permissão é desrespeitoso e em alguns locais explicitamente proibido.</div></div>
+        <div class="proib-item"><div class="proib-icon">🚭</div><div class="proib-text"><strong>Fumar em locais fechados</strong>Proibição total em restaurantes, bares, transporte público e eventos massivos.</div></div>
+        <div class="proib-item"><div class="proib-icon">💧</div><div class="proib-text"><strong>Beber água da torneira</strong>Não é proibição formal mas é risco real de saúde. Use sempre água engarrafada.</div></div>
+        <div class="proib-item"><div class="proib-icon">🏛</div><div class="proib-text"><strong>Subir em monumentos históricos</strong>Proibido no Centro Histórico e sítios arqueológicos. Multas elevadas.</div></div>
+        <div class="proib-item"><div class="proib-icon">🌿</div><div class="proib-text"><strong>Consumo de maconha em público</strong>Descriminalizado em posse pessoal mas consumo em público é proibido e sujeito a multa.</div></div>
+      </div>
+    </div>
     <div class="panel" id="cdmx-dicas">
-      <div class="tips-list">
-        <div class="tip danger"><div class="tip-icon">🚨</div><div class="tip-text"><strong>Segurança:</strong> Evite o metrô lotado com bolsas abertas. Use Uber/DiDi sempre que possível. Não exiba celulares, câmeras ou relógios caros em locais movimentados. Centro Histórico à noite: fique em áreas iluminadas e movimentadas.</div></div>
-        <div class="tip warn"><div class="tip-icon">⚠️</div><div class="tip-text"><strong>Zonas de atenção:</strong> Tepito e La Merced têm reputação de crime elevado — vá apenas de dia e em grupo. Evite o bairro Doctores à noite. Não pegue táxis de rua — sempre use apps.</div></div>
-        <div class="tip"><div class="tip-icon">💧</div><div class="tip-text"><strong>Água potável:</strong> NUNCA beba água da torneira — nem para escovar os dentes. Use água engarrafada sempre. Cuidado com gelo em locais não confiáveis. Turista's stomach é real e arruína dias.</div></div>
-        <div class="tip warn"><div class="tip-icon">⛰️</div><div class="tip-text"><strong>Altitude:</strong> CDMX fica a 2.240m acima do nível do mar. Pode causar falta de ar, dor de cabeça e cansaço nos primeiros 1–2 dias. Hidrate-se bastante, evite excessos de álcool nos primeiros dias e descanse mais.</div></div>
-        <div class="tip"><div class="tip-icon">💰</div><div class="tip-text"><strong>Dinheiro:</strong> Pesos mexicanos (MXN). Câmbio melhor em "casas de cambio" do que em aeroportos ou bancos. Cartão aceito em restaurantes e lojas; tenha dinheiro para mercados, táxis e barracas.</div></div>
-        <div class="tip"><div class="tip-icon">🗣️</div><div class="tip-text"><strong>Idioma:</strong> Espanhol. Fora de hotéis e restaurantes turísticos, pouco inglês é falado. Baixe Google Translate com o pacote de espanhol offline antes de chegar.</div></div>
-        <div class="tip green"><div class="tip-icon">💡</div><div class="tip-text"><strong>Dica de ouro:</strong> Restaurantes de rua são seguros se houver fila de locais — é sinal de qualidade e higiene. Não se limite aos restaurantes do hotel; a melhor comida de CDMX está nas ruas.</div></div>
+      <div class="tips">
+        <div class="tip danger"><div class="tip-icon">🚨</div><div class="tip-text"><strong>Segurança:</strong> Não exiba celulares/relógios caros. Use Uber/DiDi sempre. Evite Tepito e La Merced à noite. Bolsas fechadas no metrô.</div></div>
+        <div class="tip warn"><div class="tip-icon">⛰️</div><div class="tip-text"><strong>Altitude 2.240m:</strong> Primeiros 1–2 dias: falta de ar, dor de cabeça, cansaço. Hidrate-se muito e evite excesso de álcool nos primeiros dias.</div></div>
+        <div class="tip"><div class="tip-icon">💧</div><div class="tip-text"><strong>Água:</strong> NUNCA beba da torneira — nem para escovar os dentes. Garrafinhas em todo lugar (~MXN 15). Cuidado com gelo em locais duvidosos.</div></div>
+        <div class="tip"><div class="tip-icon">⏰</div><div class="tip-text"><strong>Fuso vs Brasil:</strong> CDMX está em CST (UTC-6). Brasília BRT (UTC-3). <strong>México = Brasil -1h</strong></div></div>
+        <div class="tip"><div class="tip-icon">💰</div><div class="tip-text"><strong>Dinheiro:</strong> Câmbio em "casas de cambio" (melhor taxa que banco/aeroporto). ATMs de HSBC e Banamex funcionam com cartão internacional.</div></div>
+        <div class="tip green"><div class="tip-icon">💡</div><div class="tip-text"><strong>Stella Maris + Centro:</strong> Zócalo, Templo Mayor e Bellas Artes a pé. Use o hotel como base para o Centro e pegue Uber para bairros como Roma/Condesa.</div></div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- ============================================================ HOUSTON ============================================================ -->
+<!-- ═══ HOUSTON ═══ -->
 <div class="city-block city-houston anchor" id="houston">
   <div class="city-header">
-    <div class="city-header-top">
-      <div>
-        <div class="city-name">🇺🇸 Houston, Texas</div>
-        <div class="city-hotel">🏨 Sonesta ES Suites Houston Galleria</div>
-      </div>
-    </div>
-    <div class="city-meta-row">
-      <span class="meta-chip">📅 14 a 16 de junho</span>
-      <span class="meta-chip">🌡 32–36°C</span>
-      <span class="meta-chip">💧 Umidade muito alta</span>
-      <span class="meta-chip">⏰ Fuso CDT (UTC-5)</span>
-      <span class="meta-chip">💵 Dólar (USD)</span>
+    <div class="city-name">🇺🇸 Houston, Texas</div>
+    <div class="city-hotel">🏨 Sonesta ES Suites Houston Galleria</div>
+    <div class="meta-row">
+      <span class="mc">📅 14–16 jun</span><span class="mc">🌡 32–36°C · Umidade intensa</span>
+      <span class="mc">⏰ CDT (UTC-5) · <strong>BRT -2h</strong></span><span class="mc">💵 USD</span>
     </div>
   </div>
-  <div class="tab-bar" id="tabs-houston">
-    <button class="tab-btn active" onclick="showTab('houston','lazer',this)">🎡 Lazer</button>
-    <button class="tab-btn" onclick="showTab('houston','turismo',this)">🏛 Turismo</button>
-    <button class="tab-btn" onclick="showTab('houston','comer',this)">🍽 Comer & Beber</button>
-    <button class="tab-btn" onclick="showTab('houston','bares',this)">🍹 Bares & Baladas</button>
-    <button class="tab-btn" onclick="showTab('houston','eventos',this)">🎵 Eventos</button>
-    <button class="tab-btn" onclick="showTab('houston','transporte',this)">🚇 Transporte</button>
-    <button class="tab-btn" onclick="showTab('houston','fanfest',this)">⚽ Fan Fest</button>
-    <button class="tab-btn" onclick="showTab('houston','dicas',this)">⚠ Dicas</button>
+  <div class="tab-bar">
+    <button class="tb active" onclick="tab(this,'houston','lazer')">🎡 Lazer</button>
+    <button class="tb" onclick="tab(this,'houston','turismo')">🏛 Turismo</button>
+    <button class="tb" onclick="tab(this,'houston','comer')">🍽 Comer</button>
+    <button class="tb" onclick="tab(this,'houston','bares')">🍹 Bares</button>
+    <button class="tb" onclick="tab(this,'houston','transporte')">🚇 Transporte</button>
+    <button class="tb" onclick="tab(this,'houston','fanfest')">⚽ Fan Fest</button>
+    <button class="tb" onclick="tab(this,'houston','jogos')">📅 Jogos</button>
+    <button class="tb" onclick="tab(this,'houston','proibido')">🚫 Proibido</button>
+    <button class="tb" onclick="tab(this,'houston','dicas')">💡 Dicas</button>
   </div>
   <div class="tab-content">
-
     <div class="panel active" id="houston-lazer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎠 Lazer & Diversão</div><ul>
-          <li><strong>Space Center Houston</strong> — museu da NASA com foguetes reais, terno espacial e simuladores; ~US$35</li>
-          <li><strong>Houston Zoo</strong> — um dos maiores dos EUA, no Hermann Park; ~US$25</li>
-          <li><strong>Discovery Green</strong> — parque urbano com eventos ao ar livre no Downtown, gratuito</li>
-          <li><strong>Buffalo Bayou Park</strong> — ciclovia, trilhas e arte urbana às margens do bayou</li>
-          <li><strong>Minute Maid Park</strong> — assistir um jogo dos Houston Astros (MLB) no coração da cidade</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🛍 Galleria & Arredores</div><ul>
-          <li><strong>Galleria Mall</strong> — a metros do hotel; maior shopping do Texas com pista de gelo indoor</li>
-          <li><strong>River Oaks District</strong> — área de luxo com lojas, restaurantes e bares ao ar livre</li>
-          <li><strong>Memorial Park</strong> — enorme parque urbano próximo ao hotel, com trilhas e campos esportivos</li>
-          <li><strong>Highland Village</strong> — shopping a céu aberto com restaurantes locais; 10 min do hotel</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🎠 Lazer</div><ul>
+          <li><strong>Space Center Houston</strong> — NASA; foguetes reais e simuladores (~US$35)</li>
+          <li><strong>Houston Zoo</strong> — um dos maiores dos EUA, no Hermann Park (~US$25)</li>
+          <li><strong>Discovery Green</strong> — parque urbano com eventos ao ar livre; gratuito</li>
+          <li><strong>Buffalo Bayou Park</strong> — ciclovia e arte urbana às margens</li>
+          <li><strong>Galleria Mall</strong> — pista de gelo indoor; maior shopping do Texas</li>
+        </ul>
+        <button class="expand-btn">＋ Horários, preços e mais opções</button>
+        <div class="expand-content">
+          <strong>Detalhes:</strong><br>
+          Space Center: seg–sex 10h–17h, sáb–dom 10h–18h · <a href="https://spacecenter.org" target="_blank">spacecenter.org</a><br>
+          Houston Zoo: diariamente 9h–18h · <a href="https://www.houstonzoo.org" target="_blank">houstonzoo.org</a><br>
+          Kemah Boardwalk: ~40 min · parque de diversões à beira do lago<br>
+          Museum of Fine Arts Houston: grátis quinta à noite · <a href="https://www.mfah.org" target="_blank">mfah.org</a><br><br>
+          <strong>Perto do hotel Galleria:</strong> River Oaks District a 5 min · Memorial Park com trilhas a 10 min
+        </div></div>
+        <div class="card"><div class="card-head">🏟 NRG Stadium</div><ul>
+          <li><strong>NRG Stadium</strong> — cap. 72.220; sede dos jogos em Houston</li>
+          <li><strong>Fan Fest EaDo</strong> — bairro emergente com atmosfera Copa</li>
+          <li><strong>METRORail Red Line</strong> — liga o centro ao NRG Stadium</li>
+        </ul>
+        <button class="expand-btn">＋ Como chegar no NRG Stadium</button>
+        <div class="expand-content">
+          Endereço: One NRG Park, Houston TX 77054<br>
+          METRORail Red Line → Reliant Park · Shuttle FIFA disponível nos dias de jogo<br>
+          De Uber: ~20 min do Galleria · US$15–25 normal / US$40+ no dia do jogo<br>
+          Estacionamento: US$30–60 nos dias da Copa
+        </div></div>
       </div>
     </div>
-
     <div class="panel" id="houston-turismo">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🏛 Pontos Turísticos</div><ul>
-          <li><strong>Museum District</strong> — 19 museus concentrados: MFAH, Natural Science, Children's Museum; muitos gratuitos</li>
-          <li><strong>NASA Johnson Space Center</strong> — centro de controle de missão real: ~45 min do centro; uma das experiências mais únicas dos EUA</li>
-          <li><strong>Hermann Park</strong> — jardim botânico, lago, escultura de Sam Houston e arboretum</li>
-          <li><strong>Kemah Boardwalk</strong> — parque de diversões à beira do lago a 40 min: carrossel, montanha russa e frutos do mar</li>
-          <li><strong>NRG Stadium</strong> — estádio da Copa (cap. 72.220); verificar jogos nas suas datas</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🏛 Turismo</div><ul>
+          <li><strong>Museum District</strong> — 19 museus incluindo MFAH e Natural Science</li>
+          <li><strong>NASA Johnson Space Center</strong> — controle de missão real; ~45 min</li>
+          <li><strong>Hermann Park</strong> — jardim botânico, lago e arboretum</li>
+          <li><strong>Kemah Boardwalk</strong> — diversão à beira do lago; 40 min de Uber</li>
+          <li><strong>Houston Heights</strong> — bairro histórico com galerias e cafés</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="houston-comer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍽 Restaurantes</div><ul>
-          <li><strong>Brennan's of Houston</strong> — cajun/creole refinado; clássico da cidade para almoço ou jantar</li>
-          <li><strong>Hugo's</strong> — considerado o melhor restaurante mexicano do Texas, no Montrose</li>
-          <li><strong>Goode Co. Texas BBQ</strong> — churrasco texano defumado e autêntico; fila obrigatória</li>
-          <li><strong>Crawfish & Noodles</strong> — fusão vietnamita-cajun que é um fenômeno culinário local</li>
-          <li><strong>Kirby Ice House</strong> — bar descontraído com cervejas geladas e comida casual próximo ao hotel</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🥩 Comidas Típicas</div><ul>
-          <li><strong>Texas BBQ</strong> — brisket, costelas e linguiças defumadas por horas em madeira de carvalho</li>
-          <li><strong>Tex-Mex</strong> — fajitas, enchiladas e queso fundido: a perfeita mistura texano-mexicana</li>
-          <li><strong>Crawfish (camarão de rio)</strong> — especialmente em restaurantes vietnamitas do Bellaire</li>
-          <li><strong>Kolaches</strong> — pastéis tchecos populares no café da manhã texano; encontre na Kolache Factory</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍽 Restaurantes</div><ul>
+          <li><strong>Brennan's of Houston</strong> — cajun/creole refinado; clássico da cidade</li>
+          <li><strong>Hugo's</strong> — melhor mexicano do Texas; Montrose</li>
+          <li><strong>Goode Co. Texas BBQ</strong> — BBQ defumado autêntico; vá antes da hora do almoço</li>
+          <li><strong>Crawfish &amp; Noodles</strong> — fusão vietnamita-cajun; fenômeno local</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços e preços</button>
+        <div class="expand-content">
+          <strong>Brennan's:</strong> 3300 Smith St · US$40–60/pessoa · <a href="https://brennanshouston.com" target="_blank">brennanshouston.com</a><br>
+          <strong>Hugo's:</strong> 1600 Westheimer Rd · US$25–45<br>
+          <strong>Goode Co BBQ:</strong> 5109 Kirby Dr · US$15–25 · Abre 11h<br>
+          <strong>Crawfish &amp; Noodles:</strong> 11360 Bellaire Blvd · US$15–25 · Bairro vietnamita
+        </div></div>
+        <div class="card"><div class="card-head">🥩 O Que Provar</div><ul>
+          <li><strong>Texas BBQ</strong> — brisket, costelas e linguiças defumadas por horas</li>
+          <li><strong>Tex-Mex</strong> — fajitas, enchiladas e queso fundido</li>
+          <li><strong>Crawfish cajun</strong> — camarão de rio com tempero vietnamita</li>
+          <li><strong>Kolaches</strong> — pastéis tchecos; café da manhã texano clássico</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="houston-bares">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍹 Bares & Baladas</div><ul>
-          <li><strong>Montrose</strong> — o bairro mais animado: LGBTQ+ friendly, bares diversos e independentes</li>
-          <li><strong>Poison Girl</strong> — bar alternativo com jardim e bom ambiente no Montrose</li>
-          <li><strong>Anvil Bar & Refuge</strong> — coquetéis artesanais premiados; referência nacional</li>
-          <li><strong>The Rustic</strong> — bar country gigante ao ar livre com música ao vivo e cerveja gelada</li>
-          <li><strong>EaDo (East Downtown)</strong> — bairro emergente com bares e restaurantes modernos; sede do Fan Fest</li>
-          <li><strong>Axelrad Beer Garden</strong> — jardim de cerveja relaxante, pet friendly e com piscina de areia</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍹 Bares & Baladas</div><ul>
+          <li><strong>Anvil Bar &amp; Refuge</strong> — coquetéis artesanais premiados; Montrose</li>
+          <li><strong>The Rustic</strong> — bar country ao ar livre com música ao vivo</li>
+          <li><strong>Axelrad Beer Garden</strong> — jardim pet-friendly com piscina de areia</li>
+          <li><strong>Montrose</strong> — bairro mais animado; LGBTQ+ friendly</li>
+          <li><strong>EaDo</strong> — emergente; bares modernos perto do Fan Fest</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços e dicas</button>
+        <div class="expand-content">
+          <strong>Anvil:</strong> 1424 Westheimer Rd · Ter–Dom 17h–2h<br>
+          <strong>The Rustic:</strong> 1836 Westheimer Rd · Enorme espaço ao ar livre<br>
+          <strong>Axelrad:</strong> 1517 Alabama St · Pet-friendly, sem cobrança de entrada<br>
+          <strong>Clé Houston:</strong> clube de eletrônica de alto padrão em Midtown
+        </div></div>
       </div>
     </div>
-
-    <div class="panel" id="houston-eventos">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎵 Shows & Eventos</div><ul>
-          <li><strong>Fan Fest Houston — abertura (11 jun)</strong> — Luis Fonsi como headliner na noite inaugural do festival</li>
-          <li><strong>NRG Stadium</strong> — jogos da Copa do Mundo durante o período; verifique schedule em fifa.com</li>
-          <li><strong>Shows diários no Fan Fest EaDo</strong> — apresentações ao vivo todos os dias de jogo</li>
-          <li><strong>House of Blues Houston</strong> — shows noturnos durante toda a Copa; verificar programação</li>
-          <li><strong>713 Music Hall</strong> — nova arena de shows da cidade; programação densa durante a Copa</li>
-        </ul></div>
-      </div>
-    </div>
-
     <div class="panel" id="houston-transporte">
-      <div class="transport-list">
-        <div class="transport-item"><div class="t-icon">🚗</div><div class="t-text"><strong>Uber / Lyft — Essencial</strong>Principal meio de transporte. Houston é uma cidade de carros — sem apps de transporte você ficará preso. Tenha sempre crédito e conta ativa antes de chegar.</div></div>
-        <div class="transport-item"><div class="t-icon">🚇</div><div class="t-text"><strong>METRORail</strong>Trem leve com 3 linhas. A Red Line conecta Midtown ao Museum District e NRG Stadium. Útil e econômico para os dias de jogo (evita estacionamento caro).</div></div>
-        <div class="transport-item"><div class="t-icon">🚌</div><div class="t-text"><strong>Shuttles FIFA</strong>Ônibus especiais entre pontos turísticos, Fan Fest e NRG Stadium nos dias de jogo. Consulte fwc26houston.com para rotas e horários atualizados.</div></div>
-        <div class="transport-item"><div class="t-icon">🏨</div><div class="t-text"><strong>Sonesta Galleria — localização</strong>O hotel fica na região da Galleria/Uptown: área comercial premium. Para o Fan Fest (EaDo) são ~20 min de Uber. Para NRG Stadium ~15 min. Muitos restaurantes a pé.</div></div>
+      <div class="tlist">
+        <div class="titem"><div class="ticon">🚗</div><div class="ttext"><strong>Uber / Lyft — Essencial</strong>Houston é cidade de carro. Surge pricing intenso nos dias de jogo — planeje com antecedência.</div></div>
+        <div class="titem"><div class="ticon">🚇</div><div class="ttext"><strong>METRORail — ~US$1.25</strong>3 linhas. Red Line: Galleria/Midtown → Museum District → NRG Stadium. Econômico nos dias de jogo. App METRO Trip.</div></div>
+        <div class="titem"><div class="ticon">🚌</div><div class="ttext"><strong>Shuttles FIFA</strong>Ônibus entre pontos turísticos, Fan Fest e NRG Stadium nos dias de jogo. Confirme rotas em fwc26houston.com</div></div>
+        <div class="titem"><div class="ticon">⏰</div><div class="ttext"><strong>Fuso vs Brasil: Houston = Brasil -2h</strong>CDT (UTC-5) vs BRT (UTC-3). Jogo 13h ET = 14h local = 15h BRT</div></div>
       </div>
     </div>
-
     <div class="panel" id="houston-fanfest">
-      <div class="fanfest-box">
-        <div class="fanfest-title">⚽ FIFA Fan Festival™ Oficial — Houston</div>
-        <div class="fanfest-grid">
-          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">EaDo — East Downtown Houston</div></div>
-          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">11 jun – 19 jul (34 dias de jogos)</div></div>
-          <div class="ff-item"><div class="ff-label">Horário</div><div class="ff-val">Abre 90 min antes do 1º jogo</div></div>
-          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito — aberto ao público</div></div>
-          <div class="ff-item"><div class="ff-label">VIP</div><div class="ff-val">Área premium disponível (paga)</div></div>
-          <div class="ff-item"><div class="ff-label">Site</div><div class="ff-val">fwc26houston.com/fanfestival</div></div>
+      <div class="ff-box">
+        <div class="ff-title">⚽ FIFA Fan Festival™ — Houston</div>
+        <div class="ff-grid">
+          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">EaDo — East Downtown</div></div>
+          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">11 jun – 19 jul</div></div>
+          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito</div></div>
+          <div class="ff-item"><div class="ff-label">VIP</div><div class="ff-val">Premium disponível (pago)</div></div>
+          <div class="ff-item"><div class="ff-label">Abertura</div><div class="ff-val">Luis Fonsi (headliner 11/jun)</div></div>
+          <div class="ff-item"><div class="ff-label">Site</div><div class="ff-val">fwc26houston.com</div></div>
         </div>
-        <div class="ff-desc"><strong style="color:#60a5fa">Destaques únicos do Fan Fest Houston:</strong> Campo de futebol 7 sintético com telão de 45 pés · Cúpula de projeção inspirada na bola oficial da Copa (centerpiece do festival) · Simulador imersivo de futebol · Estações de névoa (misting stations) para combater o calor intenso · Bar e restaurantes do vibrante bairro EaDo ao redor · Experiência premium disponível para grupos</div>
+        <div class="ff-desc">Campo de futebol 7 sintético · Telão de 45 pés · Cúpula imersiva com bola oficial da Copa · Simuladores interativos · Misting stations contra o calor extremo · Restaurantes e bares do EaDo ao redor</div>
       </div>
     </div>
-
+    <div class="panel" id="houston-jogos">
+      <div class="jogo-list">
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇩🇪 Alemanha vs 🇨🇼 Curaçao</span><span class="jogo-badge badge-group">Grupo E</span></div><div class="jogo-info"><span>📅 14/jun (dom)</span><span>⏰ 12h local · 13h ET</span><span>🏟 NRG Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 14h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇳🇱 Holanda vs 🇸🇪 Suécia</span><span class="jogo-badge badge-group">Grupo F</span></div><div class="jogo-info"><span>📅 20/jun (sáb)</span><span>⏰ 12h local · 13h ET</span><span>🏟 NRG Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 14h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇵🇹 Portugal vs 🇺🇿 Uzbequistão</span><span class="jogo-badge badge-group">Grupo K</span></div><div class="jogo-info"><span>📅 23/jun (ter)</span><span>⏰ 12h local · 13h ET</span><span>🏟 NRG Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 14h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇨🇻 Cabo Verde vs 🇸🇦 Arábia Saudita</span><span class="jogo-badge badge-group">Grupo H</span></div><div class="jogo-info"><span>📅 26/jun (sex)</span><span>⏰ 19h local · 20h ET</span><span>🏟 NRG Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 21h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">Oitavas — Vencedor C vs 2º F</span><span class="jogo-badge badge-r32">Oitavas de Final</span></div><div class="jogo-info"><span>📅 29/jun (seg)</span><span>⏰ 12h local · 13h ET</span><span>🏟 NRG Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 14h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">16 avos de final — TBD</span><span class="jogo-badge badge-r16">16 avos</span></div><div class="jogo-info"><span>📅 4/jul (sáb)</span><span>⏰ 12h local · 13h ET</span><span>🏟 NRG Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 14h00 BRT</div></div>
+      </div>
+    </div>
+    <div class="panel" id="houston-proibido">
+      <div class="proib-grid">
+        <div class="proib-item"><div class="proib-icon">🔫</div><div class="proib-text"><strong>Armas em estádios e Fan Fest</strong>Proibição total em todas as venues da Copa, mesmo com licença de porte texana.</div></div>
+        <div class="proib-item"><div class="proib-icon">🍺</div><div class="proib-text"><strong>Beber em público (open container)</strong>Proibido consumir álcool nas ruas e parques sem permissão específica. Multa aplicável.</div></div>
+        <div class="proib-item"><div class="proib-icon">🚭</div><div class="proib-text"><strong>Fumar em locais fechados</strong>Texas proíbe fumar em restaurantes, bares e eventos. Fan Fest tem áreas designadas.</div></div>
+        <div class="proib-item"><div class="proib-icon">📵</div><div class="proib-text"><strong>Celular ao volante</strong>Houston proibiu uso de celular ao volante. Multa a partir de US$99.</div></div>
+        <div class="proib-item"><div class="proib-icon">🏊</div><div class="proib-text"><strong>Nadar nos bayous</strong>Proibido e perigoso — correntes fortes e poluição nos canais urbanos.</div></div>
+      </div>
+    </div>
     <div class="panel" id="houston-dicas">
-      <div class="tips-list">
-        <div class="tip danger"><div class="tip-icon">☀️</div><div class="tip-text"><strong>Calor extremo e umidade:</strong> Junho em Houston é muito quente e úmido (32–36°C com sensação térmica acima de 40°C). Protetor solar, chapéu e roupas leves são essenciais. Beba água constantemente. Evite ficar ao sol em horários de pico (11h–15h).</div></div>
-        <div class="tip warn"><div class="tip-icon">🚗</div><div class="tip-text"><strong>Cidade de carro:</strong> Houston foi projetada para automóveis. Sem Uber/Lyft você ficará literalmente preso. O transporte público é muito limitado. Nos dias de jogo, prefira shuttles oficiais da FIFA ao carro próprio.</div></div>
-        <div class="tip"><div class="tip-icon">🛡️</div><div class="tip-text"><strong>Segurança:</strong> Houston é relativamente segura nas áreas turísticas (Galleria, Montrose, Museum District, EaDo, Midtown). Evite Third Ward e partes do South Houston à noite. Sempre tranque o carro.</div></div>
-        <div class="tip warn"><div class="tip-icon">💸</div><div class="tip-text"><strong>Preços inflacionados:</strong> Durante a Copa, espere preços de Uber 2–3x mais altos, restaurantes lotados e valores maiores. Reserve mesas em restaurantes populares com antecedência online (OpenTable ou Resy).</div></div>
-        <div class="tip green"><div class="tip-icon">💡</div><div class="tip-text"><strong>Dica Sonesta Galleria:</strong> O hotel tem kitchenette — economize no café da manhã comprando no Trader Joe's ou Whole Foods próximos. Excelente base para explorar Uptown/River Oaks sem precisar de transporte.</div></div>
+      <div class="tips">
+        <div class="tip danger"><div class="tip-icon">☀️</div><div class="tip-text"><strong>Calor extremo + umidade:</strong> 32–36°C com sensação acima de 40°C. FPS 50+, chapéu, roupas leves. Beba água constantemente. Evite sol das 11h–15h.</div></div>
+        <div class="tip warn"><div class="tip-icon">🚗</div><div class="tip-text"><strong>Cidade de carro:</strong> Sem app de transporte você fica preso. Use shuttle FIFA ou METRORail nos dias de jogo para evitar surge pricing.</div></div>
+        <div class="tip"><div class="tip-icon">⏰</div><div class="tip-text"><strong>Fuso vs Brasil: Houston = Brasil -2h</strong> · CDT (UTC-5)</div></div>
+        <div class="tip green"><div class="tip-icon">🏨</div><div class="tip-text"><strong>Sonesta Galleria:</strong> Tem kitchenette — compre café da manhã no Whole Foods ou Trader Joe's próximos. Economize US$20–30/dia.</div></div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- ============================================================ DALLAS ============================================================ -->
+<!-- ═══ DALLAS ═══ -->
 <div class="city-block city-dallas anchor" id="dallas">
   <div class="city-header">
-    <div class="city-header-top">
-      <div>
-        <div class="city-name">🇺🇸 Dallas, Texas</div>
-        <div class="city-hotel">🏨 Embassy Suites by Hilton Dallas Love Field</div>
-      </div>
-    </div>
-    <div class="city-meta-row">
-      <span class="meta-chip">📅 16 a 18 de junho</span>
-      <span class="meta-chip">🌡 34–38°C</span>
-      <span class="meta-chip">☀️ Seco e ensolarado</span>
-      <span class="meta-chip">⏰ Fuso CDT (UTC-5)</span>
-      <span class="meta-chip">💵 Dólar (USD)</span>
+    <div class="city-name">🇺🇸 Dallas, Texas</div>
+    <div class="city-hotel">🏨 Embassy Suites by Hilton Dallas Love Field</div>
+    <div class="meta-row">
+      <span class="mc">📅 16–18 jun</span><span class="mc">🌡 34–38°C · Seco e ensolarado</span>
+      <span class="mc">⏰ CDT (UTC-5) · <strong>BRT -2h</strong></span><span class="mc">💵 USD</span>
     </div>
   </div>
-  <div class="tab-bar" id="tabs-dallas">
-    <button class="tab-btn active" onclick="showTab('dallas','lazer',this)">🎡 Lazer</button>
-    <button class="tab-btn" onclick="showTab('dallas','turismo',this)">🏛 Turismo</button>
-    <button class="tab-btn" onclick="showTab('dallas','comer',this)">🍽 Comer & Beber</button>
-    <button class="tab-btn" onclick="showTab('dallas','bares',this)">🍹 Bares & Baladas</button>
-    <button class="tab-btn" onclick="showTab('dallas','eventos',this)">🎵 Eventos</button>
-    <button class="tab-btn" onclick="showTab('dallas','transporte',this)">🚇 Transporte</button>
-    <button class="tab-btn" onclick="showTab('dallas','fanfest',this)">⚽ Fan Fest</button>
-    <button class="tab-btn" onclick="showTab('dallas','dicas',this)">⚠ Dicas</button>
+  <div class="tab-bar">
+    <button class="tb active" onclick="tab(this,'dallas','lazer')">🎡 Lazer</button>
+    <button class="tb" onclick="tab(this,'dallas','turismo')">🏛 Turismo</button>
+    <button class="tb" onclick="tab(this,'dallas','comer')">🍽 Comer</button>
+    <button class="tb" onclick="tab(this,'dallas','bares')">🍹 Bares</button>
+    <button class="tb" onclick="tab(this,'dallas','transporte')">🚇 Transporte</button>
+    <button class="tb" onclick="tab(this,'dallas','fanfest')">⚽ Fan Fest</button>
+    <button class="tb" onclick="tab(this,'dallas','jogos')">📅 Jogos</button>
+    <button class="tb" onclick="tab(this,'dallas','proibido')">🚫 Proibido</button>
+    <button class="tb" onclick="tab(this,'dallas','dicas')">💡 Dicas</button>
   </div>
   <div class="tab-content">
-
     <div class="panel active" id="dallas-lazer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎠 Lazer & Diversão</div><ul>
-          <li><strong>Reunion Tower</strong> — mirante icônico com restaurante giratório e vista 360° de Dallas</li>
-          <li><strong>Dallas Arboretum</strong> — jardim botânico espetacular à beira do Lago White Rock</li>
-          <li><strong>Fair Park</strong> — sede do Fan Fest: parque histórico art déco com 277 acres e 1 milhão de sq ft</li>
-          <li><strong>Perot Museum of Nature & Science</strong> — muito interativo e visual; ótimo para qualquer idade</li>
-          <li><strong>Sundance Square (Fort Worth)</strong> — ~35 min: centro histórico muito animado com estilo country</li>
-        </ul></div>
-        <div class="card"><div class="card-title">⚽ Copa & AT&T Stadium</div><ul>
-          <li><strong>AT&T Stadium (Arlington)</strong> — 9 jogos da Copa: mais que qualquer outra cidade do mundo. Um dos estádios mais impressionantes existentes</li>
-          <li><strong>Frisco Toyota Stadium</strong> — campo de treino das seleções; pode ter sessões abertas</li>
-          <li><strong>IBC Centro de Transmissão</strong> — Dallas é o International Broadcast Center da Copa: jornalistas do mundo inteiro na cidade</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🎠 Lazer</div><ul>
+          <li><strong>Reunion Tower</strong> — mirante 360° com restaurante giratório (US$22)</li>
+          <li><strong>Dallas Arboretum</strong> — jardim botânico espetacular (US$20)</li>
+          <li><strong>Fair Park</strong> — 277 acres art déco; sede do Fan Fest</li>
+          <li><strong>Perot Museum</strong> — ciências naturais; interativo (US$28)</li>
+          <li><strong>Fort Worth Stockyards</strong> — cowboys e rodeio (35 min)</li>
+        </ul>
+        <button class="expand-btn">＋ Horários e como chegar</button>
+        <div class="expand-content">
+          Reunion Tower: diariamente 10h–21h · <a href="https://reuniontower.com" target="_blank">reuniontower.com</a><br>
+          Dallas Arboretum: mar–out 9h–17h · <a href="https://www.dallasarboretum.org" target="_blank">dallasarboretum.org</a><br>
+          Perot Museum: <a href="https://www.perotmuseum.org" target="_blank">perotmuseum.org</a><br>
+          Fort Worth Stockyards: grátis para entrar · <a href="https://www.fortworthstockyards.org" target="_blank">fortworthstockyards.org</a>
+        </div></div>
+        <div class="card"><div class="card-head">⚽ AT&T Stadium</div><ul>
+          <li><strong>AT&T Stadium (Arlington)</strong> — 9 jogos na Copa; mais que qualquer cidade</li>
+          <li><strong>Também é o Broadcast Center</strong> — toda mídia mundial da Copa sediada em Dallas</li>
+          <li><strong>Capacidade:</strong> 80.000+ · um dos maiores do mundo</li>
+        </ul>
+        <button class="expand-btn">＋ Como chegar em Arlington</button>
+        <div class="expand-content">
+          Endereço: 1 AT&T Way, Arlington TX<br>
+          Não há metrô até Arlington. Opções:<br>
+          <ul>
+            <li>Shuttle oficial FIFA: do Downtown Dallas e Fair Park nos dias de jogo</li>
+            <li>Uber: ~35 min, US$40–80 com surge nos dias de jogo</li>
+            <li>Estacionamento: US$50–100 · Chegue 90 min antes</li>
+          </ul>
+        </div></div>
       </div>
     </div>
-
     <div class="panel" id="dallas-turismo">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🏛 Pontos Históricos</div><ul>
-          <li><strong>Dealey Plaza / The Sixth Floor Museum</strong> — local do assassinato de JFK; museu histórico obrigatório e muito bem feito</li>
-          <li><strong>Dallas Museum of Art</strong> — entrada gratuita; coleção impressionante no Arts District</li>
-          <li><strong>Nasher Sculpture Center</strong> — jardim de esculturas ao ar livre no Arts District</li>
-          <li><strong>West End Historic District</strong> — bairro histórico com restaurantes e vida noturna</li>
-          <li><strong>Stockyards (Fort Worth)</strong> — cowboys reais, rodeios e country music; vale o deslocamento</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🏛 Turismo</div><ul>
+          <li><strong>Dealey Plaza / The Sixth Floor Museum</strong> — local e museu do assassinato de JFK (US$22)</li>
+          <li><strong>Dallas Museum of Art</strong> — entrada gratuita no Arts District</li>
+          <li><strong>Nasher Sculpture Center</strong> — jardim de esculturas ao ar livre (US$10)</li>
+          <li><strong>Klyde Warren Park</strong> — parque sobre a autopista; food trucks e eventos</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços</button>
+        <div class="expand-content">
+          Sixth Floor Museum: 411 Elm St · <a href="https://www.jfk.org" target="_blank">jfk.org</a><br>
+          Dallas Museum of Art: 1717 N Harwood St · Ter–Dom 11h–17h (sex até 21h) · Gratuito<br>
+          Nasher: 2001 Flora St · Ter–Dom 11h–17h
+        </div></div>
       </div>
     </div>
-
     <div class="panel" id="dallas-comer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍽 Restaurantes</div><ul>
-          <li><strong>Pecan Lodge</strong> — BBQ texano premiado, Deep Ellum. Fila enorme — vá antes das 11h</li>
-          <li><strong>Al Biernat's</strong> — steakhouse clássico de Dallas; bife perfeito em ambiente refinado</li>
-          <li><strong>Lucia</strong> — italiana de autor com ingredientes locais sazonais, Oak Cliff</li>
-          <li><strong>Mirador</strong> — café icônico no Museum Tower com vistas incríveis da cidade</li>
-          <li><strong>Tacos La Banqueta</strong> — tacos autênticos baratos e deliciosos perto do centro</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🥤 O Que Beber</div><ul>
-          <li><strong>Deep Ellum Brewing</strong> — cervejas artesanais locais premiadas; visitar a cervejaria</li>
-          <li><strong>Texas Craft Beers</strong> — Lone Star, Shiner Bock: cervejas regionais clássicas e baratas</li>
-          <li><strong>Margaritas Frozen</strong> — obrigatório no calor texano; em qualquer bar Tex-Mex</li>
-          <li><strong>Sweet Tea</strong> — chá gelado com açúcar: bebida clássica do sul dos EUA</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍽 Restaurantes</div><ul>
+          <li><strong>Pecan Lodge</strong> — BBQ premiado em Deep Ellum; vá antes das 11h para não acabar</li>
+          <li><strong>Al Biernat's</strong> — steakhouse clássico de Dallas (US$50–80)</li>
+          <li><strong>Lucia</strong> — italiana de autor com ingredientes sazonais</li>
+          <li><strong>Mirador</strong> — café no Museum Tower com vista 360°</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços e reservas</button>
+        <div class="expand-content">
+          <strong>Pecan Lodge:</strong> 2702 Main St, Deep Ellum · US$15–25 · Abre 11h<br>
+          <strong>Al Biernat's:</strong> 4217 Oak Lawn Ave · <a href="https://albiernat.com" target="_blank">albiernat.com</a><br>
+          <strong>Lucia:</strong> 408 W Eighth St, Oak Cliff · US$30–50<br>
+          <strong>Deep Ellum Brewing:</strong> cervejas artesanais locais premiadas
+        </div></div>
       </div>
     </div>
-
     <div class="panel" id="dallas-bares">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍹 Bares & Baladas</div><ul>
-          <li><strong>Deep Ellum</strong> — o bairro mais animado de Dallas: rock, blues, hip-hop e bares independentes em cada esquina</li>
-          <li><strong>Concrete Cowboy</strong> — bar country icônico com dança de linha e shows ao vivo</li>
-          <li><strong>Single Wide</strong> — bar alternativo descontraído com jardim e ambiente relaxante</li>
-          <li><strong>It'll Do Club</strong> — clube de house music underground premiado internacionalmente</li>
-          <li><strong>Uptown Dallas</strong> — área com bares mais refinados; Knox-Henderson e Oak Lawn</li>
-          <li><strong>Gas Monkey Bar n' Grill</strong> — bar temático icônico de Dallas com rock ao vivo</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍹 Bares & Baladas</div><ul>
+          <li><strong>Deep Ellum</strong> — bairro mais animado; rock, blues, hip-hop ao vivo</li>
+          <li><strong>Concrete Cowboy</strong> — country com dança de linha e shows</li>
+          <li><strong>It'll Do Club</strong> — house music underground premiado mundialmente</li>
+          <li><strong>Gas Monkey Bar n' Grill</strong> — rock ao vivo; ícone de Dallas</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços e entradas</button>
+        <div class="expand-content">
+          <strong>Deep Ellum:</strong> Main St e Commerce entre 2nd e 5th Ave · Melhor qui–sáb<br>
+          <strong>Concrete Cowboy:</strong> 1302 N Beckley Ave · Sex/sáb 20h–2h<br>
+          <strong>It'll Do Club:</strong> 615 N Cesar Chavez Blvd · Sex/sáb 22h–4h · ~US$10<br>
+          <strong>Gas Monkey:</strong> 10261 Technology Blvd
+        </div></div>
       </div>
     </div>
-
-    <div class="panel" id="dallas-eventos">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎵 Shows & Eventos</div><ul>
-          <li><strong>Fan Fest Fair Park — shows diários</strong> — produzido por C3 Presents (mesma empresa do Austin City Limits e Lollapalooza); line-up confirmado no site</li>
-          <li><strong>AT&T Stadium</strong> — 9 jogos da Copa do Mundo, mais que qualquer outra cidade (conf. schedule em fifa.com)</li>
-          <li><strong>American Airlines Center</strong> — verificar eventos esportivos e shows durante o período</li>
-          <li><strong>Deep Ellum</strong> — shows ao vivo todas as noites em múltiplas casas; clima completamente Copa</li>
-        </ul></div>
-      </div>
-    </div>
-
     <div class="panel" id="dallas-transporte">
-      <div class="transport-list">
-        <div class="transport-item"><div class="t-icon">🚇</div><div class="t-text"><strong>DART (Dallas Area Rapid Transit)</strong>Metrô leve que conecta Love Field ao Downtown, Fair Park e outras áreas. Dias de jogo: serviço especial ampliado até Arlington. Opção econômica para o Fan Fest em Fair Park.</div></div>
-        <div class="transport-item"><div class="t-icon">🚗</div><div class="t-text"><strong>Uber / Lyft</strong>Necessário para a maioria dos destinos. Dallas é grande e espalhada. Nos dias de jogo em Arlington, os preços sobem muito — planeje saída antecipada ou use shuttles.</div></div>
-        <div class="transport-item"><div class="t-icon">🚌</div><div class="t-text"><strong>Shuttles FIFA para AT&T Stadium</strong>Ônibus especiais entre Dallas e Arlington nos dias de jogo. Consulte dallasfwc26.com/transportation-mobility para o mapa completo de rotas e pontos de embarque.</div></div>
-        <div class="transport-item"><div class="t-icon">✈️</div><div class="t-text"><strong>Embassy Suites Love Field — vantagem</strong>Ao lado do aeroporto Love Field: voo direto para Houston (~1h) facilita a logística do roteiro. Southwest Airlines opera frequentemente nessa rota.</div></div>
+      <div class="tlist">
+        <div class="titem"><div class="ticon">🚇</div><div class="ttext"><strong>DART — Dallas Area Rapid Transit</strong>Liga Love Field ao Downtown e Fair Park. Serviço especial nos dias de jogo. ~US$3/viagem. App DART.</div></div>
+        <div class="titem"><div class="ticon">🚗</div><div class="ttext"><strong>Uber / Lyft</strong>Necessário para Arlington (AT&T Stadium). Surge intenso nos dias de jogo — planeje com antecedência.</div></div>
+        <div class="titem"><div class="ticon">🚌</div><div class="ttext"><strong>Shuttles FIFA para AT&T</strong>Ônibus Dallas ↔ Arlington nos dias de jogo. Mapa: dallasfwc26.com/transportation-mobility</div></div>
+        <div class="titem"><div class="ticon">✈️</div><div class="ttext"><strong>Embassy Suites Love Field</strong>Ao lado do aeroporto. Voo Love Field → Houston Hobby: ~1h (Southwest). Facilita a logística do roteiro.</div></div>
+        <div class="titem"><div class="ticon">⏰</div><div class="ttext"><strong>Fuso vs Brasil: Dallas = Brasil -2h</strong> · CDT (UTC-5)</div></div>
       </div>
     </div>
-
     <div class="panel" id="dallas-fanfest">
-      <div class="fanfest-box">
-        <div class="fanfest-title">⚽ FIFA Fan Festival™ Oficial — Dallas</div>
-        <div class="fanfest-grid">
-          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">Fair Park — Dos Equis Pavilion (Lots 9 e 10)</div></div>
-          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">11 jun – 19 jul (34 dias de jogos)</div></div>
-          <div class="ff-item"><div class="ff-label">Capacidade</div><div class="ff-val">~7.500/sessão · 15.000 visitantes/dia</div></div>
-          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito (VIP pago disponível)</div></div>
-          <div class="ff-item"><div class="ff-label">Registro</div><div class="ff-val">dallasfwc26.com/fifafanfestival-dallas</div></div>
-          <div class="ff-item"><div class="ff-label">Horário</div><div class="ff-val">Abre 90 min antes do 1º jogo do dia</div></div>
+      <div class="ff-box">
+        <div class="ff-title">⚽ FIFA Fan Festival™ — Dallas</div>
+        <div class="ff-grid">
+          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">Fair Park — Dos Equis Pavilion</div></div>
+          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">11 jun – 19 jul (34 dias)</div></div>
+          <div class="ff-item"><div class="ff-label">Capacidade</div><div class="ff-val">~15.000/dia · 1 milhão sq ft</div></div>
+          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito (VIP pago)</div></div>
+          <div class="ff-item"><div class="ff-label">Produção</div><div class="ff-val">C3 Presents (Lollapalooza/ACL)</div></div>
+          <div class="ff-item"><div class="ff-label">Site</div><div class="ff-val">dallasfwc26.com</div></div>
         </div>
-        <div class="ff-desc"><strong style="color:#60a5fa">Destaques:</strong> Dois palcos de shows · Telões gigantes com jogos ao vivo · Culinária local e internacional · 1 milhão de sq ft de área total · Produção de qualidade festival por C3 Presents (Lollapalooza/ACL) · Shows com line-up confirmado no CBS Texas · Nota: jogos que começam após 22h/23h local NÃO são transmitidos no festival</div>
+        <div class="ff-desc">2 palcos de shows · Telões gigantes · Culinária local e internacional · Jogos com início após 22h/23h local NÃO são transmitidos no festival</div>
       </div>
     </div>
-
+    <div class="panel" id="dallas-jogos">
+      <div class="jogo-list">
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇳🇱 Holanda vs 🇯🇵 Japão</span><span class="jogo-badge badge-group">Grupo F</span></div><div class="jogo-info"><span>📅 14/jun (dom)</span><span>⏰ 15h local · 16h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 17h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra vs 🇭🇷 Croácia</span><span class="jogo-badge badge-group">Grupo L</span></div><div class="jogo-info"><span>📅 17/jun (ter)</span><span>⏰ 15h local · 16h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 17h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇦🇷 Argentina vs 🇦🇹 Áustria</span><span class="jogo-badge badge-group">Grupo J</span></div><div class="jogo-info"><span>📅 22/jun (seg)</span><span>⏰ 12h local · 13h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 14h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇯🇵 Japão vs 🇸🇪 Suécia</span><span class="jogo-badge badge-group">Grupo F</span></div><div class="jogo-info"><span>📅 25/jun (qui)</span><span>⏰ 18h local · 19h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 20h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇯🇴 Jordânia vs 🇦🇷 Argentina</span><span class="jogo-badge badge-group">Grupo J</span></div><div class="jogo-info"><span>📅 27/jun (sáb)</span><span>⏰ 21h local · 22h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 23h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">Oitavas — 2º E vs 2º I</span><span class="jogo-badge badge-r32">Oitavas de Final</span></div><div class="jogo-info"><span>📅 30/jun (ter)</span><span>⏰ 12h local · 13h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 14h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">16 avos — TBD</span><span class="jogo-badge badge-r16">16 avos</span></div><div class="jogo-info"><span>📅 6/jul (seg)</span><span>⏰ 14h local · 15h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 16h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🏆 Semifinal — TBD</span><span class="jogo-badge badge-qf">Semifinal</span></div><div class="jogo-info"><span>📅 14/jul (ter)</span><span>⏰ 14h local · 15h ET</span><span>🏟 AT&T Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 16h00 BRT</div></div>
+      </div>
+    </div>
+    <div class="panel" id="dallas-proibido">
+      <div class="proib-grid">
+        <div class="proib-item"><div class="proib-icon">🔫</div><div class="proib-text"><strong>Armas em venues da Copa</strong>Proibição total em AT&T Stadium, Fan Fest e áreas oficiais FIFA, mesmo com licença.</div></div>
+        <div class="proib-item"><div class="proib-icon">🍺</div><div class="proib-text"><strong>Open container nas ruas</strong>Proibido. Multa de US$250+. Exceção: zonas com permissão especial durante a Copa.</div></div>
+        <div class="proib-item"><div class="proib-icon">🅿️</div><div class="proib-text"><strong>Estacionar em Arlington sem credencial</strong>Zonas de exclusão rigorosas ao redor do AT&T Stadium. Reboque + US$300 de taxa.</div></div>
+        <div class="proib-item"><div class="proib-icon">📸</div><div class="proib-text"><strong>Câmeras profissionais sem credencial</strong>Lentes longas (&gt;6") proibidas no estádio sem credencial de imprensa FIFA.</div></div>
+      </div>
+    </div>
     <div class="panel" id="dallas-dicas">
-      <div class="tips-list">
-        <div class="tip danger"><div class="tip-icon">☀️</div><div class="tip-text"><strong>Calor seco e intenso:</strong> Dallas em junho é ainda mais quente que Houston com calor seco (34–38°C+). Hidratação constante é crucial. Protetor solar alto e chapéu são obrigatórios em eventos ao ar livre como o Fan Fest.</div></div>
-        <div class="tip warn"><div class="tip-icon">🗺️</div><div class="tip-text"><strong>AT&T Stadium fica em Arlington — não em Dallas!</strong> São ~30–40 min de carro. Planeje a logística do dia do jogo com bastante antecedência. Estacionamento em Arlington custa US$50–100 nos dias de jogo.</div></div>
-        <div class="tip"><div class="tip-icon">📡</div><div class="tip-text"><strong>Dallas = Centro de Transmissão Mundial:</strong> Dallas é o International Broadcast Center da Copa 2026. Milhares de jornalistas e celebridades do mundo inteiro estarão na cidade — espere movimento intenso e hotéis lotados.</div></div>
-        <div class="tip"><div class="tip-icon">🛡️</div><div class="tip-text"><strong>Segurança:</strong> Deep Ellum pode ser agitado à noite mas é seguro nas áreas de bar (muita polícia durante a Copa). Evite South Dallas à noite. Love Field e Uptown são áreas muito tranquilas.</div></div>
-        <div class="tip green"><div class="tip-icon">💡</div><div class="tip-text"><strong>Dica de ouro:</strong> Embassy Suites inclui café da manhã completo gratuito + happy hour com bebidas e petiscos grátis (17h–19h). Aproveite — economiza bastante no orçamento de 2 dias.</div></div>
+      <div class="tips">
+        <div class="tip danger"><div class="tip-icon">☀️</div><div class="tip-text"><strong>Calor seco e extremo:</strong> 34–38°C e mais seco que Houston, sem alívio à noite. FPS 50+, chapéu, hidratação constante.</div></div>
+        <div class="tip warn"><div class="tip-icon">🗺️</div><div class="tip-text"><strong>AT&T Stadium fica em Arlington</strong> — não em Dallas. 30–40 min de carro. Reserve transporte com bastante antecedência.</div></div>
+        <div class="tip"><div class="tip-icon">📡</div><div class="tip-text"><strong>Dallas = Centro de Transmissão da Copa:</strong> Toda mídia mundial em Dallas. Espere movimento intenso e restaurantes com fila.</div></div>
+        <div class="tip green"><div class="tip-icon">🏨</div><div class="tip-text"><strong>Embassy Suites Love Field:</strong> Inclui café da manhã completo gratuito + happy hour 17h–19h com drinks inclusos. Economize US$30–50/dia.</div></div>
+        <div class="tip"><div class="tip-icon">⏰</div><div class="tip-text"><strong>Fuso vs Brasil: Dallas = Brasil -2h</strong> · CDT (UTC-5)</div></div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- ============================================================ PHILADELPHIA ============================================================ -->
+<!-- ═══ PHILADELPHIA ═══ -->
 <div class="city-block city-philly anchor" id="philly">
   <div class="city-header">
-    <div class="city-header-top">
-      <div>
-        <div class="city-name">🇺🇸 Philadelphia, Pennsylvania</div>
-        <div class="city-hotel">🏨 Club Quarters Hotel</div>
-      </div>
-    </div>
-    <div class="city-meta-row">
-      <span class="meta-chip">📅 18 a 20 de junho</span>
-      <span class="meta-chip">🌡 25–30°C</span>
-      <span class="meta-chip">🌧 Agradável, possível chuva</span>
-      <span class="meta-chip">⏰ Fuso EDT (UTC-4)</span>
-      <span class="meta-chip">💵 Dólar (USD)</span>
+    <div class="city-name">🇺🇸 Philadelphia, Pennsylvania</div>
+    <div class="city-hotel">🏨 Club Quarters Hotel · Center City</div>
+    <div class="meta-row">
+      <span class="mc">📅 18–20 jun</span><span class="mc">🌡 25–30°C · Possível chuva</span>
+      <span class="mc">⏰ EDT (UTC-4) · <strong>BRT -1h</strong></span><span class="mc">💵 USD</span>
     </div>
   </div>
-  <div class="tab-bar" id="tabs-philly">
-    <button class="tab-btn active" onclick="showTab('philly','lazer',this)">🎡 Lazer</button>
-    <button class="tab-btn" onclick="showTab('philly','turismo',this)">🏛 Turismo</button>
-    <button class="tab-btn" onclick="showTab('philly','comer',this)">🍽 Comer & Beber</button>
-    <button class="tab-btn" onclick="showTab('philly','bares',this)">🍹 Bares & Baladas</button>
-    <button class="tab-btn" onclick="showTab('philly','eventos',this)">🎵 Eventos</button>
-    <button class="tab-btn" onclick="showTab('philly','transporte',this)">🚇 Transporte</button>
-    <button class="tab-btn" onclick="showTab('philly','fanfest',this)">⚽ Fan Fest</button>
-    <button class="tab-btn" onclick="showTab('philly','dicas',this)">⚠ Dicas</button>
+  <div class="tab-bar">
+    <button class="tb active" onclick="tab(this,'philly','lazer')">🎡 Lazer</button>
+    <button class="tb" onclick="tab(this,'philly','turismo')">🏛 Turismo</button>
+    <button class="tb" onclick="tab(this,'philly','comer')">🍽 Comer</button>
+    <button class="tb" onclick="tab(this,'philly','bares')">🍹 Bares</button>
+    <button class="tb" onclick="tab(this,'philly','transporte')">🚇 Transporte</button>
+    <button class="tb" onclick="tab(this,'philly','fanfest')">⚽ Fan Fest</button>
+    <button class="tb" onclick="tab(this,'philly','jogos')">📅 Jogos</button>
+    <button class="tb" onclick="tab(this,'philly','proibido')">🚫 Proibido</button>
+    <button class="tb" onclick="tab(this,'philly','dicas')">💡 Dicas</button>
   </div>
   <div class="tab-content">
-
     <div class="panel active" id="philly-lazer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎠 Lazer & Diversão</div><ul>
-          <li><strong>Philadelphia Museum of Art</strong> — os famosos degraus de Rocky; arte europeia e americana de classe mundial</li>
-          <li><strong>Reading Terminal Market</strong> — mercado coberto histórico com comida Amish, étnica e local (aberto desde 1892)</li>
-          <li><strong>Fairmount Park</strong> — 4.077 acres: um dos maiores parques urbanos dos EUA; sede do Fan Fest</li>
-          <li><strong>Eastern State Penitentiary</strong> — prisão histórica com tours incríveis; onde Al Capone ficou preso</li>
-          <li><strong>Citizens Bank Park</strong> — assistir aos Phillies (MLB) durante a visita; estádio animadíssimo</li>
-        </ul></div>
-        <div class="card"><div class="card-title">⭐ Experiências Únicas</div><ul>
-          <li><strong>Philly 250</strong> — a cidade celebra os 250 anos dos EUA em 2026 simultaneamente à Copa: eventos extras por toda a cidade</li>
-          <li><strong>Schuylkill River Trail</strong> — ciclovia ao lado do Fan Fest em Lemon Hill; aluguel de bikes disponível</li>
-          <li><strong>Murais de Philly</strong> — mais de 4.000 murais espalhados: cidade é galeria de arte a céu aberto</li>
-          <li><strong>Italian Market (9th Street)</strong> — o mercado aberto mais antigo dos EUA; em operação contínua</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🎠 Lazer</div><ul>
+          <li><strong>Philadelphia Museum of Art</strong> — degraus de Rocky; arte europeia (US$30)</li>
+          <li><strong>Reading Terminal Market</strong> — mercado histórico coberto com comida Amish</li>
+          <li><strong>Fairmount Park</strong> — 4.077 acres; sede do Fan Fest da Copa</li>
+          <li><strong>Eastern State Penitentiary</strong> — prisão histórica com tours (US$20)</li>
+          <li><strong>Italian Market (9th Street)</strong> — mercado aberto mais antigo dos EUA</li>
+        </ul>
+        <button class="expand-btn">＋ Horários, preços e Philly 250</button>
+        <div class="expand-content">
+          PMA: US$30 · Ter–Dom 10h–17h (sex até 20h45) · <a href="https://philamuseum.org" target="_blank">philamuseum.org</a> · Os degraus são gratuitos!<br>
+          Reading Terminal: seg–sáb 8h–18h, dom 9h–17h · Gratuito para entrar<br>
+          Eastern State: US$20 · <a href="https://www.easternstate.org" target="_blank">easternstate.org</a><br><br>
+          <strong>Philly 250:</strong> Philadelphia celebra 250 anos dos EUA em 2026 — eventos históricos extras por toda a cidade!
+        </div></div>
+        <div class="card"><div class="card-head">🇺🇸 História Americana</div><ul>
+          <li><strong>Independence Hall</strong> — onde a Declaração foi assinada; gratuito</li>
+          <li><strong>Liberty Bell</strong> — símbolo da liberdade; gratuito</li>
+          <li><strong>Elfreth's Alley</strong> — rua habitada mais antiga dos EUA (1702)</li>
+          <li><strong>National Constitution Center</strong> — museu interativo</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="philly-turismo">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🏛 Pontos Históricos</div><ul>
-          <li><strong>Independence Hall</strong> — onde a Declaração de Independência e a Constituição foram assinadas; entrada gratuita</li>
-          <li><strong>Liberty Bell</strong> — símbolo máximo da liberdade americana; gratuito, aberto todos os dias</li>
-          <li><strong>Betsy Ross House</strong> — casa da costureira da primeira bandeira americana; no Old City</li>
-          <li><strong>National Constitution Center</strong> — museu interativo sobre a Constituição dos EUA; muito bem feito</li>
-          <li><strong>Elfreth's Alley</strong> — a rua habitada mais antiga dos EUA (1702); mágica e pequena</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🗺 Bairros</div><ul>
-          <li><strong>Center City</strong> — onde fica o Club Quarters; tudo a pé: Liberty Bell, Reading Market, Old City</li>
-          <li><strong>Old City</strong> — bairro histórico colonial com galerias de arte e ótimos restaurantes</li>
-          <li><strong>Fishtown</strong> — boêmio e emergente; o Brooklyn de Philly, com os melhores bares</li>
-          <li><strong>South Philly</strong> — italiano, cheesesteaks autênticos e o Italian Market</li>
-          <li><strong>Rittenhouse Square</strong> — praça elegante com restaurantes sofisticados e lojas</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🗺 Bairros & Turismo</div><ul>
+          <li><strong>Center City</strong> — hotel Club Quarters; tudo a pé</li>
+          <li><strong>Old City</strong> — colonial com galerias e restaurantes</li>
+          <li><strong>Fishtown</strong> — hipster; melhores bares da cidade</li>
+          <li><strong>South Philly</strong> — cheesesteaks e Italian Market</li>
+          <li><strong>Rittenhouse Square</strong> — elegante; restaurantes sofisticados</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="philly-comer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍽 Comer em Philly</div><ul>
-          <li><strong>Pat's King of Steaks</strong> — o cheesesteak original desde 1930; peça "wit" (com cebola) e provolone</li>
-          <li><strong>Geno's Steaks</strong> — rival histórico de Pat's, em frente um do outro; debate eterno de qual é melhor</li>
-          <li><strong>Reading Terminal Market</strong> — almoços baratos e variadíssimos; pratos Amish são imperdíveis</li>
-          <li><strong>Zahav</strong> — israelense premiado; considerado um dos melhores restaurantes dos EUA</li>
-          <li><strong>Vernick Food & Drink</strong> — americano contemporâneo excelente; muito bem avaliado</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🥖 Sabores Locais</div><ul>
-          <li><strong>Philly Cheesesteak</strong> — THE prato da cidade; pergunte sempre: "wit or witout onion?" e "whiz, provolone or american?"</li>
-          <li><strong>Soft Pretzels</strong> — em qualquer esquina com mostarda; snack clássico de Philly</li>
-          <li><strong>Water Ice</strong> — "Italian Ice" local; ótimo para o calor de junho</li>
-          <li><strong>Scrapple</strong> — café da manhã local com carne de porco defumada; experiência autêntica</li>
-          <li><strong>Tastykakes</strong> — docinhos locais icônicos; encontre em qualquer mercearia</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🥖 Restaurantes</div><ul>
+          <li><strong>Pat's King of Steaks</strong> — cheesesteak original desde 1930 · 24h</li>
+          <li><strong>Geno's Steaks</strong> — rival histórico de Pat's; em frente · 24h</li>
+          <li><strong>Reading Terminal Market</strong> — almoços baratos e variados</li>
+          <li><strong>Zahav</strong> — israelense premiado; um dos melhores dos EUA</li>
+        </ul>
+        <button class="expand-btn">＋ Como pedir um cheesesteak corretamente</button>
+        <div class="expand-content">
+          <strong>O ritual do Philly Cheesesteak:</strong><br>
+          Peça assim: <em>[queijo] [cebola]</em><br>
+          Queijos: <strong>Whiz</strong> (cheez whiz clássico) · <strong>American</strong> · <strong>Provolone</strong><br>
+          Cebola: <strong>Wit</strong> (com) ou <strong>Witout</strong> (sem)<br>
+          Exemplo: "Whiz wit" = com cheez whiz e cebola caramelizada<br><br>
+          <strong>Pat's:</strong> 1237 E Passyunk Ave · 24 horas<br>
+          <strong>Zahav:</strong> 237 St James Pl · US$50–80 · <a href="https://www.zahavrestaurant.com" target="_blank">zahavrestaurant.com</a>
+        </div></div>
+        <div class="card"><div class="card-head">🥤 O Que Provar</div><ul>
+          <li><strong>Philly Cheesesteak</strong> — THE prato: carne fatiada, queijo, pão hoagie</li>
+          <li><strong>Soft Pretzels</strong> — em qualquer esquina com mostarda</li>
+          <li><strong>Water Ice</strong> — italian ice local; ótimo para o calor</li>
+          <li><strong>Tastykakes</strong> — doces icônicos em qualquer mercearia</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="philly-bares">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍹 Bares & Baladas</div><ul>
-          <li><strong>Fishtown</strong> — o bairro hipster com os melhores bares independentes da cidade</li>
-          <li><strong>Kraftwork</strong> — bar industrial com cerveja artesanal excelente em Fishtown</li>
-          <li><strong>Garage Fishtown</strong> — bar esportivo com sinuca, pingue-pongue e boa cerveja</li>
-          <li><strong>Silk City Diner Bar</strong> — bar-restaurante histórico com DJs e ambiente retrô</li>
-          <li><strong>South Street</strong> — rua animada com bares, tattoo shops e vida noturna alternativa</li>
-          <li><strong>Xfinity Live!</strong> — complexo de bares gigante perto dos estádios; lotado nos dias de jogo</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍹 Bares</div><ul>
+          <li><strong>Fishtown</strong> — bairro hipster com os melhores bares independentes</li>
+          <li><strong>Kraftwork</strong> — craft beer industrial em Fishtown</li>
+          <li><strong>Garage Fishtown</strong> — bar esportivo com sinuca e pingue-pongue</li>
+          <li><strong>South Street</strong> — vida noturna alternativa e variada</li>
+          <li><strong>Xfinity Live!</strong> — complexo gigante perto dos estádios da cidade</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços</button>
+        <div class="expand-content">
+          <strong>Fishtown:</strong> Girard Ave entre Front e Frankford Ave<br>
+          <strong>Kraftwork:</strong> 541 E Girard Ave<br>
+          <strong>Silk City:</strong> 435 Spring Garden St · Diner bar com DJs<br>
+          <strong>Xfinity Live:</strong> 1100 Pattison Ave · Perto dos estádios dos Phillies/Eagles
+        </div></div>
       </div>
     </div>
-
-    <div class="panel" id="philly-eventos">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎵 Shows & Eventos</div><ul>
-          <li><strong>Fan Fest Lemon Hill</strong> — DJs e shows ao vivo todos os 39 dias; shows com ingresso especial em dias sem jogo</li>
-          <li><strong>Abertura do Fan Fest (11 jun)</strong> — noite especial com shows no Lemon Hill</li>
-          <li><strong>America's 250th Celebrations</strong> — eventos especiais de Independência por toda a cidade durante sua estadia</li>
-          <li><strong>Lincoln Financial Field</strong> — estádio dos Eagles é sede da Copa; verificar schedule em fifa.com</li>
-          <li><strong>Wells Fargo Center</strong> — arena de shows; verificar programação durante a Copa</li>
-        </ul></div>
-      </div>
-    </div>
-
     <div class="panel" id="philly-transporte">
-      <div class="transport-list">
-        <div class="transport-item"><div class="t-icon">🚇</div><div class="t-text"><strong>SEPTA</strong>Sistema de metrô, trem e ônibus bem estruturado. Bus 32 e 48 com serviço reforçado especialmente para o Fan Fest em Fairmount. Passe diário recomendado para 2 dias.</div></div>
-        <div class="transport-item"><div class="t-icon">🚌</div><div class="t-text"><strong>Philly PHLASH</strong>Ônibus turístico com nova parada Stop 9 criada especialmente para o Fan Fest (Pennsylvania Ave & Fairmount Ave). US$5 dia inteiro; gratuito para holders SEPTA, idosos e crianças até 4 anos.</div></div>
-        <div class="transport-item"><div class="t-icon">🚶</div><div class="t-text"><strong>A pé — Center City</strong>Club Quarters fica no Center City: Liberty Bell, Reading Market, Old City e Rittenhouse Square a menos de 15 minutos a pé. Uma das cidades mais caminháveis dos EUA.</div></div>
-        <div class="transport-item"><div class="t-icon">🚗</div><div class="t-text"><strong>Uber / Lyft</strong>Disponíveis e baratos comparado a NYC. Durante jogos, surge pricing. Para Lincoln Financial Field, use SEPTA (Broad Street Line) — muito mais eficiente que carro.</div></div>
+      <div class="tlist">
+        <div class="titem"><div class="ticon">🚇</div><div class="ttext"><strong>SEPTA</strong>Ônibus 32 e 48 reforçados para o Fan Fest em Fairmount. Passe diário US$5. App SEPTA.</div></div>
+        <div class="titem"><div class="ticon">🚌</div><div class="ttext"><strong>Philly PHLASH</strong>Stop 9 novo para Fan Fest em Pennsylvania Ave &amp; Fairmount Ave. US$5 dia inteiro. Gratuito para SEPTA holders. ridephillyphlash.com</div></div>
+        <div class="titem"><div class="ticon">🚶</div><div class="ttext"><strong>A pé — Center City é muito walkable</strong>Club Quarters: Liberty Bell, Reading Market, Old City — tudo em menos de 15 min a pé.</div></div>
+        <div class="titem"><div class="ticon">⏰</div><div class="ttext"><strong>Fuso vs Brasil: Philadelphia = Brasil -1h</strong> · EDT (UTC-4)</div></div>
       </div>
     </div>
-
     <div class="panel" id="philly-fanfest">
-      <div class="fanfest-box">
-        <div class="fanfest-title">⭐ FIFA Fan Festival™ Oficial — Philadelphia · Único por 39 dias nos EUA</div>
-        <div class="fanfest-grid">
+      <div class="ff-box">
+        <div class="ff-title">⭐ FIFA Fan Festival™ — Philadelphia · O mais longo dos EUA: 39 dias!</div>
+        <div class="ff-grid">
           <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">Lemon Hill, East Fairmount Park</div></div>
-          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">11 jun – 19 jul (39 dias consecutivos)</div></div>
-          <div class="ff-item"><div class="ff-label">Entradas</div><div class="ff-val">Sedgley/Poplar Dr (sul) · Girard/Poplar Dr (norte)</div></div>
-          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito — registro online obrigatório</div></div>
-          <div class="ff-item"><div class="ff-label">Capacidade</div><div class="ff-val">~15.000/dia — first come, first served</div></div>
+          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">11 jun – 19 jul (39 dias)</div></div>
+          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito — e-ticket obrigatório</div></div>
+          <div class="ff-item"><div class="ff-label">Entradas</div><div class="ff-val">Sul: Sedgley/Poplar · Norte: Girard/Poplar</div></div>
+          <div class="ff-item"><div class="ff-label">Capacidade</div><div class="ff-val">~15.000/dia · first come first served</div></div>
           <div class="ff-item"><div class="ff-label">Registro</div><div class="ff-val">phillyfwc26.com/fifa-fan-fest</div></div>
         </div>
-        <div class="ff-desc"><strong style="color:#60a5fa">Destaques:</strong> 1 milhão de sq ft de área · +75 food trucks · Shows de DJs e bandas ao vivo diariamente · Campo de futebol casual · Jogos interativos · Mercado de vendedores locais · Shows ticketados em dias sem jogo · Ciclovia Schuylkill River ao lado · Philadelphia é a única cidade nos EUA com Fan Fest pelos 39 dias completos do torneio</div>
-        <div class="ff-warn">⚠ IMPORTANTE: Entrada gratuita mas exige e-ticket via registro online antecipado em phillyfwc26.com. Não deixe para o dia — pode estar esgotado. Restrições de estacionamento na área de 11 jun – 19 jul (multa US$26 + reboque US$175 para carros irregulares).</div>
+        <div class="ff-desc">1 milhão sq ft · +75 food trucks · Shows de DJs e bandas ao vivo · Campo casual de futebol · Mercado de vendedores locais · Ciclovia do rio Schuylkill ao lado</div>
+        <div class="ff-warn">⚠ OBRIGATÓRIO: Registre-se em phillyfwc26.com ANTES de ir para obter seu e-ticket. Sem ele, não entra. Capacidade pode esgotar em dias de grandes jogos.</div>
       </div>
     </div>
-
+    <div class="panel" id="philly-jogos">
+      <div class="jogo-list">
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇨🇮 Costa do Marfim vs 🇪🇨 Equador</span><span class="jogo-badge badge-group">Grupo E</span></div><div class="jogo-info"><span>📅 14/jun (dom)</span><span>⏰ 19h ET</span><span>🏟 Lincoln Financial Field</span></div><div class="jogo-brasil">🇧🇷 Brasil: 20h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇧🇷 Brasil vs 🇭🇹 Haiti 🔥</span><span class="jogo-badge badge-group">Grupo C</span></div><div class="jogo-info"><span>📅 19/jun (qui)</span><span>⏰ 20h30 ET</span><span>🏟 Lincoln Financial Field</span></div><div class="jogo-brasil">🇧🇷 Brasil: 21h30 BRT — JOGO DO BRASIL!</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇫🇷 França vs 🇮🇶 Iraque</span><span class="jogo-badge badge-group">Grupo I</span></div><div class="jogo-info"><span>📅 22/jun (seg)</span><span>⏰ 17h ET</span><span>🏟 Lincoln Financial Field</span></div><div class="jogo-brasil">🇧🇷 Brasil: 18h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇨🇼 Curaçao vs 🇨🇮 Costa do Marfim</span><span class="jogo-badge badge-group">Grupo E</span></div><div class="jogo-info"><span>📅 25/jun (qui)</span><span>⏰ 16h ET</span><span>🏟 Lincoln Financial Field</span></div><div class="jogo-brasil">🇧🇷 Brasil: 17h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇭🇷 Croácia vs 🇬🇭 Gana</span><span class="jogo-badge badge-group">Grupo L</span></div><div class="jogo-info"><span>📅 27/jun (sáb)</span><span>⏰ 17h ET</span><span>🏟 Lincoln Financial Field</span></div><div class="jogo-brasil">🇧🇷 Brasil: 18h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">16 avos — TBD</span><span class="jogo-badge badge-r16">16 avos</span></div><div class="jogo-info"><span>📅 4/jul (sáb)</span><span>⏰ 17h ET</span><span>🏟 Lincoln Financial Field</span></div><div class="jogo-brasil">🇧🇷 Brasil: 18h00 BRT</div></div>
+      </div>
+    </div>
+    <div class="panel" id="philly-proibido">
+      <div class="proib-grid">
+        <div class="proib-item"><div class="proib-icon">🎟️</div><div class="proib-text"><strong>Fan Fest sem e-ticket</strong>Obrigatório registro prévio em phillyfwc26.com. Sem e-ticket: sem entrada, mesmo sendo gratuito.</div></div>
+        <div class="proib-item"><div class="proib-icon">🅿️</div><div class="proib-text"><strong>Estacionar em Fairmount sem permissão</strong>Restrição 11/jun–19/jul em Fairmount e adjacências. Multa US$26 + reboque US$175.</div></div>
+        <div class="proib-item"><div class="proib-icon">⚠️</div><div class="proib-text"><strong>Kensington — ÁREA A EVITAR ABSOLUTAMENTE</strong>Crise de opioides severa. Não vá a nenhuma hora do dia. Risco real e presente para turistas.</div></div>
+        <div class="proib-item"><div class="proib-icon">🚭</div><div class="proib-text"><strong>Fumar em locais fechados</strong>Pennsylvania proíbe fumar em restaurantes, bares e qualquer local de trabalho fechado.</div></div>
+        <div class="proib-item"><div class="proib-icon">🍺</div><div class="proib-text"><strong>Álcool em parques e ruas</strong>Proibido no Fairmount Park e ruas. Apenas nos stands autorizados dentro do Fan Fest.</div></div>
+      </div>
+    </div>
     <div class="panel" id="philly-dicas">
-      <div class="tips-list">
-        <div class="tip warn"><div class="tip-icon">🎟️</div><div class="tip-text"><strong>Registre-se no Fan Fest ANTES:</strong> A entrada é gratuita MAS exige e-ticket obtido via registro online antecipado em phillyfwc26.com. Acesse, clique no dia que quer ir e complete o formulário. Leva 2 minutos mas não pode ser feito na hora.</div></div>
-        <div class="tip"><div class="tip-icon">🇺🇸</div><div class="tip-text"><strong>Clima histórico duplo:</strong> Philadelphia celebra os 250 anos dos EUA em 2026 concomitantemente à Copa. Espere muitos eventos especiais, decorações e atmosfera única na cidade durante sua estadia.</div></div>
-        <div class="tip warn"><div class="tip-icon">🅿️</div><div class="tip-text"><strong>Estacionamento Fan Fest:</strong> Restrições de estacionamento de 11 jun – 19 jul nos bairros Fairmount, Brewerytown e Strawberry Mansion. Use SEPTA/PHLASH para evitar dor de cabeça. Carro irregulares: multa US$26 + reboque US$175.</div></div>
-        <div class="tip"><div class="tip-icon">🛡️</div><div class="tip-text"><strong>Segurança:</strong> Center City, Old City, Fishtown e Rittenhouse são áreas seguras. Evite Kensington a qualquer hora (crise de opioides) e partes do North Philly à noite. Não exiba pertences de valor em transporte público.</div></div>
-        <div class="tip green"><div class="tip-icon">💡</div><div class="tip-text"><strong>Club Quarters Hotel:</strong> Localização excelente no Center City. Estilo funcional e business, sem frescuras — ideal para a estadia curta de 2 dias. Restaurantes, mercados e metrô a metros do hotel.</div></div>
+      <div class="tips">
+        <div class="tip danger"><div class="tip-icon">🎟️</div><div class="tip-text"><strong>FAÇA O REGISTRO DO FAN FEST AGORA:</strong> phillyfwc26.com → dia desejado → formulário → salve o e-ticket. 2 minutos. Sem isso, não entra.</div></div>
+        <div class="tip"><div class="tip-icon">🇺🇸</div><div class="tip-text"><strong>Philly 250:</strong> Celebração dos 250 anos dos EUA simultânea à Copa. Eventos históricos e culturais únicos por toda a cidade.</div></div>
+        <div class="tip green"><div class="tip-icon">🔥</div><div class="tip-text"><strong>Brasil joga em Philly!</strong> 19/jun: Brasil vs Haiti às 20h30 ET (21h30 BRT). Compre ingresso no estádio via fifa.com/tickets</div></div>
+        <div class="tip"><div class="tip-icon">⏰</div><div class="tip-text"><strong>Fuso vs Brasil: Philadelphia = Brasil -1h</strong> · EDT (UTC-4)</div></div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- ============================================================ MIAMI ============================================================ -->
+<!-- ═══ MIAMI ═══ -->
 <div class="city-block city-miami anchor" id="miami">
   <div class="city-header">
-    <div class="city-header-top">
-      <div>
-        <div class="city-name">🇺🇸 Miami, Florida</div>
-        <div class="city-hotel">🏨 Clevelander South Beach Hotel and Bar</div>
-      </div>
-    </div>
-    <div class="city-meta-row">
-      <span class="meta-chip">📅 20 a 23 de junho</span>
-      <span class="meta-chip">🌡 30–33°C</span>
-      <span class="meta-chip">🌧 Chuvas rápidas à tarde</span>
-      <span class="meta-chip">⏰ Fuso EDT (UTC-4)</span>
-      <span class="meta-chip">💵 Dólar (USD)</span>
+    <div class="city-name">🇺🇸 Miami, Florida</div>
+    <div class="city-hotel">🏨 Clevelander South Beach · Ocean Drive</div>
+    <div class="meta-row">
+      <span class="mc">📅 20–23 jun</span><span class="mc">🌡 30–33°C · Chuvas tropicais à tarde</span>
+      <span class="mc">⏰ EDT (UTC-4) · <strong>BRT -1h</strong></span><span class="mc">💵 USD</span>
     </div>
   </div>
-  <div class="tab-bar" id="tabs-miami">
-    <button class="tab-btn active" onclick="showTab('miami','lazer',this)">🎡 Lazer</button>
-    <button class="tab-btn" onclick="showTab('miami','turismo',this)">🏛 Turismo</button>
-    <button class="tab-btn" onclick="showTab('miami','comer',this)">🍽 Comer & Beber</button>
-    <button class="tab-btn" onclick="showTab('miami','bares',this)">🍹 Bares & Baladas</button>
-    <button class="tab-btn" onclick="showTab('miami','eventos',this)">🎵 Eventos</button>
-    <button class="tab-btn" onclick="showTab('miami','transporte',this)">🚇 Transporte</button>
-    <button class="tab-btn" onclick="showTab('miami','fanfest',this)">⚽ Fan Fest</button>
-    <button class="tab-btn" onclick="showTab('miami','dicas',this)">⚠ Dicas</button>
+  <div class="tab-bar">
+    <button class="tb active" onclick="tab(this,'miami','lazer')">🎡 Lazer</button>
+    <button class="tb" onclick="tab(this,'miami','turismo')">🏛 Turismo</button>
+    <button class="tb" onclick="tab(this,'miami','comer')">🍽 Comer</button>
+    <button class="tb" onclick="tab(this,'miami','bares')">🍹 Bares</button>
+    <button class="tb" onclick="tab(this,'miami','transporte')">🚇 Transporte</button>
+    <button class="tb" onclick="tab(this,'miami','fanfest')">⚽ Fan Fest</button>
+    <button class="tb" onclick="tab(this,'miami','jogos')">📅 Jogos</button>
+    <button class="tb" onclick="tab(this,'miami','proibido')">🚫 Proibido</button>
+    <button class="tb" onclick="tab(this,'miami','dicas')">💡 Dicas</button>
   </div>
   <div class="tab-content">
-
     <div class="panel active" id="miami-lazer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🏖 Praia & Diversão</div><ul>
-          <li><strong>South Beach</strong> — a praia mais famosa dos EUA; o Clevelander fica diretamente na Ocean Drive, a passos da areia</li>
-          <li><strong>Lummus Park Beach</strong> — trecho de praia pública ao lado do hotel; gratuito e ótimo</li>
-          <li><strong>Jet Ski & Esportes Aquáticos</strong> — aluguéis de jet ski, paddle board e parasail diretamente na praia</li>
-          <li><strong>Wynwood Walls</strong> — galeria de arte a céu aberto com murais mundialmente famosos; Wynwood bairro</li>
-          <li><strong>Bayside Marketplace</strong> — shopping à beira d'água com passeios de barco pela baía</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🌴 Experiências Miami</div><ul>
-          <li><strong>Art Deco Walking Tour</strong> — South Beach: arquitetura art déco histórica visível saindo do Clevelander na Ocean Drive</li>
-          <li><strong>Little Havana — Calle Ocho</strong> — dominó, cafezinho cubano (ventanita), charutos e música ao vivo</li>
-          <li><strong>Everglades Day Trip</strong> — ~45 min: airboat nos Everglades com caimãs garantidos; experiência única</li>
-          <li><strong>Key Biscayne</strong> — ilha paradisíaca a 15 min por ponte; praia tranquila e natureza</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🏖 Praia & Diversão</div><ul>
+          <li><strong>South Beach</strong> — a praia do Clevelander; direto na Ocean Drive</li>
+          <li><strong>Jet Ski &amp; Esportes Aquáticos</strong> — aluguéis direto na praia</li>
+          <li><strong>Wynwood Walls</strong> — galeria de murais mundialmente famosa</li>
+          <li><strong>Bayside Marketplace</strong> — shopping à beira d'água; passeios de barco</li>
+          <li><strong>Everglades</strong> — airboat com jacarés; ~45 min, US$35–50</li>
+        </ul>
+        <button class="expand-btn">＋ Preços e onde</button>
+        <div class="expand-content">
+          Jet Ski: ~US$60–80/30min · Stands na 11th St Beach<br>
+          Wynwood Walls: US$12 entrada completa · Qua–Dom 11h–20h · <a href="https://wynwoodwalls.com" target="_blank">wynwoodwalls.com</a><br>
+          Everglades airboat: <a href="https://www.evergladesairtours.com" target="_blank">evergladesairtours.com</a><br>
+          Key Biscayne: cruzar a Rickenbacker Causeway de bike; praia muito mais tranquila que SoBe
+        </div></div>
+        <div class="card"><div class="card-head">🌴 Experiências</div><ul>
+          <li><strong>Art Deco Walking Tour</strong> — histórico; saindo do Clevelander</li>
+          <li><strong>Little Havana (Calle Ocho)</strong> — dominó, café cubano e charutos</li>
+          <li><strong>Key Biscayne</strong> — ilha paradisíaca a 15 min por ponte</li>
+          <li><strong>Design District</strong> — lojas de grife e galerias de arte</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="miami-turismo">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🏛 Pontos Turísticos</div><ul>
-          <li><strong>Ocean Drive (Art Deco District)</strong> — a rua mais famosa de Miami; você sai do Clevelander e já está nela</li>
-          <li><strong>Vizcaya Museum & Gardens</strong> — palácio histórico italiano à beira da Baía de Biscayne; imperdível</li>
-          <li><strong>Pérez Art Museum Miami (PAMM)</strong> — arte contemporânea com vista panorâmica para a baía</li>
-          <li><strong>Jungle Island</strong> — flamingos, tucanos e shows de fauna exótica</li>
-          <li><strong>Freedom Tower</strong> — símbolo da imigração cubana no Downtown de Miami</li>
-        </ul></div>
-        <div class="card"><div class="card-title">🗺 Bairros para Explorar</div><ul>
-          <li><strong>South Beach / SoBe</strong> — onde o hotel fica: praia + bares + restaurantes + vida noturna</li>
-          <li><strong>Wynwood</strong> — arte de rua, cafés, cervejarias e vida noturna emergente e descolada</li>
-          <li><strong>Brickell</strong> — downtown financeiro com rooftops, restaurantes refinados e vista da baía</li>
-          <li><strong>Little Havana</strong> — imersão cultural cubana autêntica; a 15 min de SoBe</li>
-          <li><strong>Coconut Grove</strong> — bairro boêmio com marinas, cafés e atmosfera relaxante</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🏛 Turismo</div><ul>
+          <li><strong>Ocean Drive</strong> — a rua; você já está nela no Clevelander</li>
+          <li><strong>Vizcaya Museum &amp; Gardens</strong> — palácio histórico italiano (US$25)</li>
+          <li><strong>Pérez Art Museum Miami</strong> — arte contemporânea com vista para a baía</li>
+          <li><strong>Little Havana</strong> — 15 min de SoBe; imersão cultural cubana</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços e horários</button>
+        <div class="expand-content">
+          Vizcaya: 3251 S Miami Ave · US$25 · Qua–Dom 9h30–16h30 · <a href="https://vizcaya.org" target="_blank">vizcaya.org</a><br>
+          PAMM: 1103 Biscayne Blvd · US$20 (ter gratuito 18h–21h)<br>
+          Ball &amp; Chain (Little Havana): 1513 SW 8th St · Show de salsa todas as noites
+        </div></div>
       </div>
     </div>
-
     <div class="panel" id="miami-comer">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍽 Restaurantes</div><ul>
-          <li><strong>Joe's Stone Crab</strong> — lendário desde 1913; experiência obrigatória (Stone Crabs em temporada out–mai, mas o restante do menu é excelente)</li>
-          <li><strong>Versailles</strong> — o restaurante cubano clássico de Miami em Little Havana; preço acessível</li>
-          <li><strong>Zuma Miami</strong> — japonês contemporâneo premiado no Brickell; robatayaki imperdível</li>
-          <li><strong>KYU Miami</strong> — asiático com influências de churrasco em Wynwood; muito bem avaliado</li>
-          <li><strong>Mandolin Aegean Bistro</strong> — mediterrâneo com jardim encantador no Design District</li>
-        </ul></div>
-        <div class="card"><div class="card-title">☕ Sabores de Miami</div><ul>
-          <li><strong>Café Cubano</strong> — expresso forte e doce, US$1–2 nas "ventanitas" (janelinhas de serviço) em Little Havana</li>
-          <li><strong>Ceviche peruano</strong> — Miami tem excelentes restaurantes peruanos como La Mar</li>
-          <li><strong>Pastelitos cubanos</strong> — pastel de goiabada e cream cheese; em qualquer padaria cubana</li>
-          <li><strong>Mojito</strong> — rum cubano, hortelã e limão: a bebida clássica da cidade</li>
-          <li><strong>Açaí Bowl</strong> — muito popular em SoBe; influência brasileira bem estabelecida em Miami</li>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍽 Restaurantes</div><ul>
+          <li><strong>Versailles</strong> — cubano clássico em Little Havana; acessível (US$10–20)</li>
+          <li><strong>Zuma Miami</strong> — japonês contemporâneo premiado no Brickell (US$60–100)</li>
+          <li><strong>KYU Miami</strong> — asiático com churrasco em Wynwood</li>
+          <li><strong>Joe's Stone Crab</strong> — lendário desde 1913 em South Beach</li>
+        </ul>
+        <button class="expand-btn">＋ Endereços e reservas</button>
+        <div class="expand-content">
+          <strong>Versailles:</strong> 3555 SW 8th St · Abre 8h · <a href="https://www.versaillesrestaurant.com" target="_blank">versaillesrestaurant.com</a><br>
+          <strong>Zuma:</strong> 270 Brickell Ave · Reserva em <a href="https://zumarestaurant.com" target="_blank">zumarestaurant.com</a><br>
+          <strong>KYU:</strong> 251 NW 25th St · US$35–55<br>
+          <strong>Joe's:</strong> 11 Washington Ave · US$40–80<br><br>
+          💚 Barato: Versailles, ventanitas cubanas, food trucks Wynwood<br>
+          💛 Médio: KYU, Mandolin Aegean Bistro<br>
+          🔴 Caro: Zuma, Swan, Casa Tua
+        </div></div>
+        <div class="card"><div class="card-head">☕ O Que Provar</div><ul>
+          <li><strong>Café Cubano</strong> — expresso forte e doce nas ventanitas (~US$1–2)</li>
+          <li><strong>Pastelitos cubanos</strong> — goiabada e cream cheese; padarias cubanas</li>
+          <li><strong>Mojito</strong> — rum cubano, hortelã e limão: a bebida de Miami</li>
+          <li><strong>Açaí Bowl</strong> — influência brasileira muito presente em SoBe</li>
+          <li><strong>Stone Crab</strong> — mariscos locais sazonais e lendários</li>
         </ul></div>
       </div>
     </div>
-
     <div class="panel" id="miami-bares">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🍹 Bares & Baladas</div><ul>
-          <li><strong>Clevelander Hotel Bar & Pool</strong> — o próprio hotel é um bar/piscina icônico da Ocean Drive; você já está lá</li>
-          <li><strong>LIV Nightclub (Fontainebleau)</strong> — um dos clubes mais famosos dos EUA; reserva obrigatória, dress code</li>
-          <li><strong>Story Nightclub</strong> — eletrônica, house e hip-hop no SoBe; open até 5h da manhã</li>
-          <li><strong>Mango's Tropical Cafe</strong> — show de dança tropical e música latina na Ocean Drive; turístico mas divertido</li>
-          <li><strong>Wynwood Brewing</strong> — cerveja artesanal em ambiente descontraído; bom para começar a noite</li>
-          <li><strong>Ball & Chain</strong> — bar cubano histórico de 1935 com jazz e salsa ao vivo em Little Havana</li>
-        </ul></div>
+      <div class="grid">
+        <div class="card"><div class="card-head">🍹 Bares & Baladas</div><ul>
+          <li><strong>Clevelander Pool Bar</strong> — você já está lá; ícone da Ocean Drive</li>
+          <li><strong>LIV Nightclub (Fontainebleau)</strong> — um dos mais famosos dos EUA</li>
+          <li><strong>Story Nightclub</strong> — eletrônica e hip-hop até 5h</li>
+          <li><strong>Mango's Tropical Cafe</strong> — show de dança tropical na Ocean Drive</li>
+          <li><strong>Ball &amp; Chain</strong> — bar cubano histórico de 1935 com salsa ao vivo</li>
+        </ul>
+        <button class="expand-btn">＋ Dress code e entradas</button>
+        <div class="expand-content">
+          <strong>LIV:</strong> 4441 Collins Ave · Reserva de mesa OBRIGATÓRIA · Dress code formal · <a href="https://www.livnightclub.com" target="_blank">livnightclub.com</a><br>
+          <strong>Story:</strong> 136 Collins Ave · Qui–Dom a partir de 23h · Sem sandália ou bermuda<br>
+          <strong>Clevelander:</strong> 1020 Ocean Drive · Piscina/bar 11h–3h · Sem dress code<br>
+          <strong>Ball &amp; Chain:</strong> 1513 SW 8th St · Sem cover · Salsa ao vivo toda noite
+        </div></div>
       </div>
     </div>
-
-    <div class="panel" id="miami-eventos">
-      <div class="card-grid">
-        <div class="card"><div class="card-title">🎵 Shows & Eventos</div><ul>
-          <li><strong>Fan Fest Bayfront Park</strong> — shows e transmissões de 13 jun – 5 jul; você pega os primeiros dias</li>
-          <li><strong>Hard Rock Stadium</strong> — estádio da Copa (Miami Gardens); ~30 min de SoBe; verificar schedule</li>
-          <li><strong>Kaseya Center</strong> — arena multifuncional do Downtown; verificar programação durante a Copa</li>
-          <li><strong>Ocean Drive / South Beach</strong> — ambiente de festa espontânea na rua durante toda a Copa; o Clevelander é o epicentro</li>
-        </ul></div>
-      </div>
-    </div>
-
     <div class="panel" id="miami-transporte">
-      <div class="transport-list">
-        <div class="transport-item"><div class="t-icon">🚗</div><div class="t-text"><strong>Uber / Lyft</strong>Principal opção. Miami tem trânsito intenso — especialmente nos fins de semana em South Beach e dias de jogo. Reserve com antecedência e verifique rotas alternativas via Brickell.</div></div>
-        <div class="transport-item"><div class="t-icon">🚇</div><div class="t-text"><strong>Metromover</strong>Monotrilho gratuito no Downtown de Miami. Conecta ao Metrorail para Hard Rock Stadium (+ shuttle oficial). Bayfront Park Fan Fest fica próximo à estação Government Center.</div></div>
-        <div class="transport-item"><div class="t-icon">🚲</div><div class="t-text"><strong>Citi Bike Miami</strong>Bicicletas compartilhadas: excelente para South Beach — terreno plano e seguro. Ciclovias até Wynwood e Design District. App disponível; estações em toda Ocean Drive.</div></div>
-        <div class="transport-item"><div class="t-icon">🚌</div><div class="t-text"><strong>Miami Beach Trolley</strong>Ônibus gratuito em várias rotas de South Beach — conecta Ocean Drive ao Collins Ave e Washington Ave. Ótimo para se locomover sem gastar.</div></div>
-        <div class="transport-item"><div class="t-icon">🚶</div><div class="t-text"><strong>A pé — South Beach</strong>O Clevelander fica na Ocean Drive. Praia, restaurantes e bares a passos. O Boardwalk vai de 21st St a 46th St e é perfeito para caminhadas de manhã.</div></div>
+      <div class="tlist">
+        <div class="titem"><div class="ticon">🚗</div><div class="ttext"><strong>Uber / Lyft</strong>Principal opção. Trânsito intenso em SoBe. Nos dias de jogo: reserve com antecedência.</div></div>
+        <div class="titem"><div class="ticon">🚇</div><div class="ttext"><strong>Metromover</strong>Gratuito no Downtown. Conecta ao Metrorail para Hard Rock Stadium. Bayfront Park Fan Fest próximo à estação.</div></div>
+        <div class="titem"><div class="ticon">🚲</div><div class="ttext"><strong>Citi Bike Miami</strong>Ótimo para SoBe — terreno plano e seguro. App Citi Bike. Estações por toda Ocean Drive.</div></div>
+        <div class="titem"><div class="ticon">🚌</div><div class="ttext"><strong>Miami Beach Trolley</strong>Gratuito em várias rotas. Conecta Ocean Drive ao Collins Ave, Washington Ave e Lincoln Road.</div></div>
+        <div class="titem"><div class="ticon">⏰</div><div class="ttext"><strong>Fuso vs Brasil: Miami = Brasil -1h</strong> · EDT (UTC-4)</div></div>
       </div>
     </div>
-
     <div class="panel" id="miami-fanfest">
-      <div class="fanfest-box">
-        <div class="fanfest-title">⚽ FIFA Fan Festival™ Oficial — Miami</div>
-        <div class="fanfest-grid">
-          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">Bayfront Park — Downtown Miami, Biscayne Bay</div></div>
-          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">13 jun – 5 jul (23 dias consecutivos)</div></div>
-          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito — aberto ao público</div></div>
-          <div class="ff-item"><div class="ff-label">Acesso</div><div class="ff-val">Metromover (Bayfront Park Station)</div></div>
+      <div class="ff-box">
+        <div class="ff-title">⚽ FIFA Fan Festival™ — Miami</div>
+        <div class="ff-grid">
+          <div class="ff-item"><div class="ff-label">Local</div><div class="ff-val">Bayfront Park — Downtown Miami</div></div>
+          <div class="ff-item"><div class="ff-label">Período</div><div class="ff-val">13 jun – 5 jul (23 dias)</div></div>
+          <div class="ff-item"><div class="ff-label">Ingresso</div><div class="ff-val">✅ Gratuito</div></div>
+          <div class="ff-item"><div class="ff-label">Vista</div><div class="ff-val">Baía de Biscayne — linda!</div></div>
+          <div class="ff-item"><div class="ff-label">Metrô</div><div class="ff-val">Metromover Bayfront Park Station</div></div>
           <div class="ff-item"><div class="ff-label">Site</div><div class="ff-val">miamifwc26.com/fan-festival</div></div>
-          <div class="ff-item"><div class="ff-label">Perfil</div><div class="ff-val">Familiar · Cultural · Multicultural</div></div>
         </div>
-        <div class="ff-desc"><strong style="color:#60a5fa">Destaques:</strong> Telões gigantes com jogos ao vivo com vista para a Baía de Biscayne · Shows e performances culturais diárias · Gastronomia internacional · Ativações interativas e jogos · Programação family-friendly · Uma das mais belas localizações de Fan Fest do mundo — pôr do sol sobre a baía de Miami durante os jogos</div>
+        <div class="ff-desc">Telões com jogos ao vivo · Shows e performances culturais diárias · Gastronomia internacional · Ativações interativas · Family-friendly · Vista da Baía de Biscayne — pôr do sol durante os jogos é espetacular</div>
       </div>
     </div>
-
+    <div class="panel" id="miami-jogos">
+      <div class="jogo-list">
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇸🇦 Arábia Saudita vs 🇺🇾 Uruguai</span><span class="jogo-badge badge-group">Grupo H</span></div><div class="jogo-info"><span>📅 15/jun (seg)</span><span>⏰ 18h ET</span><span>🏟 Hard Rock Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 19h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇺🇾 Uruguai vs 🇨🇻 Cabo Verde</span><span class="jogo-badge badge-group">Grupo H</span></div><div class="jogo-info"><span>📅 21/jun (dom)</span><span>⏰ 18h ET</span><span>🏟 Hard Rock Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 19h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia vs 🇧🇷 Brasil 🔥</span><span class="jogo-badge badge-group">Grupo C</span></div><div class="jogo-info"><span>📅 24/jun (ter)</span><span>⏰ 18h ET</span><span>🏟 Hard Rock Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 19h00 BRT — JOGO DO BRASIL!</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🇨🇴 Colômbia vs 🇵🇹 Portugal</span><span class="jogo-badge badge-group">Grupo K</span></div><div class="jogo-info"><span>📅 27/jun (sáb)</span><span>⏰ 19h30 ET</span><span>🏟 Hard Rock Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 20h30 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">Oitavas — Vencedor J vs 2º H</span><span class="jogo-badge badge-r32">Oitavas de Final</span></div><div class="jogo-info"><span>📅 3/jul (sex)</span><span>⏰ 18h ET</span><span>🏟 Hard Rock Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 19h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🏆 Quartas de Final — TBD</span><span class="jogo-badge badge-qf">Quartas</span></div><div class="jogo-info"><span>📅 11/jul (sáb)</span><span>⏰ 17h ET</span><span>🏟 Hard Rock Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 18h00 BRT</div></div>
+        <div class="jogo"><div class="jogo-top"><span class="jogo-times">🥉 3º Lugar — TBD</span><span class="jogo-badge badge-r16">3º Lugar</span></div><div class="jogo-info"><span>📅 18/jul (sáb)</span><span>⏰ 17h ET</span><span>🏟 Hard Rock Stadium</span></div><div class="jogo-brasil">🇧🇷 Brasil: 18h00 BRT</div></div>
+      </div>
+    </div>
+    <div class="panel" id="miami-proibido">
+      <div class="proib-grid">
+        <div class="proib-item"><div class="proib-icon">🚭</div><div class="proib-text"><strong>Fumar nas praias e parques</strong>Miami Beach proibiu fumar em praias públicas e parques. Multa de US$250+.</div></div>
+        <div class="proib-item"><div class="proib-icon">🍺</div><div class="proib-text"><strong>Álcool em praias públicas</strong>Proibido consumir bebidas alcoólicas em praias públicas de Miami Beach sem área autorizada.</div></div>
+        <div class="proib-item"><div class="proib-icon">🔊</div><div class="proib-text"><strong>Barulho após 22h</strong>Regulamento rígido de ruído. Bares devem fechar a música às 2h (algumas exceções para locais licenciados).</div></div>
+        <div class="proib-item"><div class="proib-icon">🐊</div><div class="proib-text"><strong>Alimentar jacarés nos Everglades</strong>Crime federal com multa de até US$1.000. Os animais perdem o medo e têm de ser abatidos.</div></div>
+        <div class="proib-item"><div class="proib-icon">🌊</div><div class="proib-text"><strong>Nadar com bandeira vermelha</strong>Bandeira vermelha = proibido entrar na água. Multa e risco real de afogamento. Bandeira roxa = vida marinha perigosa.</div></div>
+        <div class="proib-item"><div class="proib-icon">💊</div><div class="proib-text"><strong>Drogas</strong>Florida: tolerância zero para drogas ilícitas. Maconha recreativa legalizada em 2024 mas consumo público é proibido.</div></div>
+      </div>
+    </div>
     <div class="panel" id="miami-dicas">
-      <div class="tips-list">
-        <div class="tip green"><div class="tip-icon">🏨</div><div class="tip-text"><strong>Clevelander Hotel — A escolha perfeita:</strong> Um dos hotéis mais icônicos de South Beach, diretamente na Ocean Drive. A área da piscina/bar é um ponto turístico em si. Prepare-se para muito barulho até tarde — não é hotel para dormir cedo, mas é a experiência autêntica de SoBe.</div></div>
-        <div class="tip danger"><div class="tip-icon">☀️</div><div class="tip-text"><strong>Sol e calor intenso:</strong> Miami em junho é quente e úmido. Protetor solar FPS 50+ é obrigatório — o sol em SoBe queima em minutos. Hidrate-se constantemente, especialmente na praia e no Fan Fest ao ar livre.</div></div>
-        <div class="tip warn"><div class="tip-icon">⛈️</div><div class="tip-text"><strong>Chuvas tropicais súbitas:</strong> Tempestades rápidas e intensas são comuns à tarde (14h–17h) em junho. Leve guarda-chuva compacto ou poncho. Geralmente passam em 20–30 minutos mas podem ser muito fortes.</div></div>
-        <div class="tip warn"><div class="tip-icon">💸</div><div class="tip-text"><strong>Preços elevados em SoBe:</strong> South Beach é caro mesmo fora da Copa. Com o evento, espere valores ainda mais altos. Bares e restaurantes na Ocean Drive cobram taxa de serviço automática de 18–20%. Verifique a conta antes de adicionar gorjeta.</div></div>
-        <div class="tip"><div class="tip-icon">🛡️</div><div class="tip-text"><strong>Segurança:</strong> South Beach e Brickell são muito bem policiados e seguros. Atenção em Overtown e Liberty City. Na praia, nunca deixe pertences sem vigilância ao entrar na água — use o serviço de guarda-volumes.</div></div>
-        <div class="tip"><div class="tip-icon">🗣️</div><div class="tip-text"><strong>Espanhol e Português:</strong> Miami é bilíngue. Espanhol é amplamente falado. Brasileiro encontra facilidade de comunicação em SoBe, Brickell e Wynwood — tem comunidade brasileira grande na cidade.</div></div>
-        <div class="tip green"><div class="tip-icon">💡</div><div class="tip-text"><strong>Vida noturna começa tarde:</strong> Bares enchem depois das 23h; clubes após meia-noite. Restaurantes populares lotam após 20h — reserve mesa online (OpenTable). O Clevelander começa a animar por volta das 22h.</div></div>
+      <div class="tips">
+        <div class="tip green"><div class="tip-icon">🏨</div><div class="tip-text"><strong>Clevelander — prepare-se:</strong> O bar/piscina é um ponto turístico. Não é hotel para dormir cedo — festa até tarde. Localização incomparável na Ocean Drive.</div></div>
+        <div class="tip danger"><div class="tip-icon">☀️</div><div class="tip-text"><strong>Sol intenso:</strong> FPS 50+ obrigatório — queima em minutos mesmo com nuvens. Reaplicar a cada 2h.</div></div>
+        <div class="tip warn"><div class="tip-icon">⛈️</div><div class="tip-text"><strong>Chuvas tropicais repentinas:</strong> 14h–17h são as mais comuns. Guarda-chuva compacto sempre. Passam em 20–30 min.</div></div>
+        <div class="tip warn"><div class="tip-icon">💸</div><div class="tip-text"><strong>Preços SoBe:</strong> Taxa de serviço automática de 18–20% em bares e restaurantes. Verifique antes de adicionar gorjeta. Copa = tudo +30%.</div></div>
+        <div class="tip"><div class="tip-icon">⏰</div><div class="tip-text"><strong>Fuso vs Brasil: Miami = Brasil -1h</strong> · EDT (UTC-4)</div></div>
+        <div class="tip green"><div class="tip-icon">🇧🇷</div><div class="tip-text"><strong>Comunidade brasileira enorme:</strong> Falar português em SoBe, Brickell e Aventura é completamente normal. E o Brasil joga aqui em 24/jun!</div></div>
       </div>
     </div>
+  </div>
+</div>
 
+<!-- ═══ CALENDÁRIO COMPLETO ═══ -->
+<div class="city-block anchor" style="border-color:rgba(245,158,11,.3)" id="calendario">
+  <div class="city-header global-header">
+    <div class="city-name">📅 Calendário Completo — Copa 2026</div>
+    <div class="city-hotel">Todos os jogos de 11 a 30 de junho · Horários ET e BRT · Filtre por data e cidade</div>
+    <div class="meta-row" style="margin-top:.75rem">
+      <span class="mc" style="color:var(--blue2);border-color:rgba(59,130,246,.3)">🟦 Suas cidades do roteiro</span>
+      <span class="mc" style="color:var(--green2);border-color:rgba(16,185,129,.3)">🔥 Jogos do Brasil</span>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="cal-filters">
+      <label>De:</label>
+      <input type="date" id="f-from" value="2026-06-11" min="2026-06-11" max="2026-06-30">
+      <label>Até:</label>
+      <input type="date" id="f-to" value="2026-06-30" min="2026-06-11" max="2026-06-30">
+      <label>Cidade:</label>
+      <select id="f-city">
+        <option value="">Todas as cidades</option>
+        <option value="mexico">🇲🇽 Cidade do México</option>
+        <option value="houston">🇺🇸 Houston</option>
+        <option value="dallas">🇺🇸 Dallas/Arlington</option>
+        <option value="philly">🇺🇸 Philadelphia</option>
+        <option value="miami">🇺🇸 Miami</option>
+        <option value="ny">🇺🇸 Nova York/NJ</option>
+        <option value="boston">🇺🇸 Boston</option>
+        <option value="atlanta">🇺🇸 Atlanta</option>
+        <option value="seattle">🇺🇸 Seattle</option>
+        <option value="la">🇺🇸 Los Angeles</option>
+        <option value="kc">🇺🇸 Kansas City</option>
+        <option value="toronto">🇨🇦 Toronto</option>
+        <option value="vancouver">🇨🇦 Vancouver</option>
+        <option value="monterrey">🇲🇽 Monterrey</option>
+        <option value="guadalajara">🇲🇽 Guadalajara</option>
+      </select>
+      <button onclick="filterCal()">🔍 Filtrar</button>
+      <button onclick="resetCal()" style="background:var(--bg3);color:var(--text2);border:1px solid var(--border2)">Reset</button>
+    </div>
+    <div id="cal-output"></div>
+    <div id="no-results">Nenhum jogo encontrado com esses filtros.</div>
   </div>
 </div>
 
 </div><!-- /container -->
 
 <div class="footer">
-  <p>⚽ Guia Copa do Mundo 2026 · Gerado com informações oficiais da FIFA e fontes locais · Junho 2026</p>
-  <p style="margin-top:6px">Fontes: <a href="https://www.fifa.com" target="_blank">fifa.com</a> · <a href="https://worldcupwiki.com" target="_blank">worldcupwiki.com</a> · Sites oficiais de cada cidade</p>
+  <p>⚽ Guia Copa do Mundo 2026 · v2.0 · Feito com dados oficiais FIFA · Junho 2026</p>
+  <p style="margin-top:6px">
+    <a href="https://www.fifa.com" target="_blank">fifa.com</a> ·
+    <a href="https://worldcupwiki.com/schedule/" target="_blank">Schedule completo</a> ·
+    <a href="https://www.mexicocityfwc26.com.mx" target="_blank">Fan Fest CDMX</a> ·
+    <a href="https://fwc26houston.com" target="_blank">Houston</a> ·
+    <a href="https://dallasfwc26.com" target="_blank">Dallas</a> ·
+    <a href="https://phillyfwc26.com" target="_blank">Philly</a> ·
+    <a href="https://miamifwc26.com" target="_blank">Miami</a>
+  </p>
 </div>
 
 <script>
-function showTab(city, tab, btn) {
-  document.querySelectorAll('#tabs-' + city + ' .tab-btn').forEach(b => b.classList.remove('active'));
+function tab(btn, city, name) {
+  document.querySelectorAll('#'+city+' .tb').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('#' + city + ' .panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(city + '-' + tab).classList.add('active');
+  document.querySelectorAll('#'+city+' .panel').forEach(p=>p.classList.remove('active'));
+  const el=document.getElementById(city+'-'+name);
+  if(el) el.classList.add('active');
 }
+
+document.querySelectorAll('.expand-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    const c=this.nextElementSibling;
+    const open=c.classList.contains('open');
+    c.classList.toggle('open',!open);
+    this.textContent=open?'＋ Ver mais':'－ Recolher';
+  });
+});
+
+const MY=['mexico','houston','dallas','philly','miami'];
+const CITY_NAMES={mexico:'Cidade do México',houston:'Houston',dallas:'Dallas/Arlington',philly:'Philadelphia',miami:'Miami',ny:'Nova York/NJ',boston:'Boston/Foxborough',atlanta:'Atlanta',seattle:'Seattle',la:'Los Angeles',kc:'Kansas City',toronto:'Toronto',vancouver:'Vancouver',monterrey:'Monterrey',guadalajara:'Guadalajara'};
+const DAYS=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const MESES=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+const MATCHES=[
+  {d:'2026-06-11',g:'A',t1:'🇲🇽 México',t2:'🇿🇦 África do Sul',et:'15:00',brt:'16:00',v:'Estadio Ciudad de México',c:'mexico',br:false},
+  {d:'2026-06-11',g:'A',t1:'🇰🇷 Coreia do Sul',t2:'🇨🇿 Czechia',et:'22:00',brt:'23:00',v:'Estadio Akron',c:'guadalajara',br:false},
+  {d:'2026-06-12',g:'B',t1:'🇨🇦 Canadá',t2:'🇧🇦 Bósnia',et:'15:00',brt:'16:00',v:'BMO Field',c:'toronto',br:false},
+  {d:'2026-06-12',g:'D',t1:'🇺🇸 EUA',t2:'🇵🇾 Paraguai',et:'21:00',brt:'22:00',v:'SoFi Stadium',c:'la',br:false},
+  {d:'2026-06-13',g:'B',t1:'🇶🇦 Catar',t2:'🇨🇭 Suíça',et:'15:00',brt:'16:00',v:"Levi's Stadium",c:'la',br:false},
+  {d:'2026-06-13',g:'C',t1:'🇧🇷 Brasil',t2:'🇲🇦 Marrocos',et:'18:00',brt:'19:00',v:'MetLife Stadium',c:'ny',br:true},
+  {d:'2026-06-13',g:'C',t1:'🇭🇹 Haiti',t2:'🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia',et:'21:00',brt:'22:00',v:'Gillette Stadium',c:'boston',br:false},
+  {d:'2026-06-14',g:'E',t1:'🇩🇪 Alemanha',t2:'🇨🇼 Curaçao',et:'13:00',brt:'14:00',v:'NRG Stadium',c:'houston',br:false},
+  {d:'2026-06-14',g:'F',t1:'🇳🇱 Holanda',t2:'🇯🇵 Japão',et:'16:00',brt:'17:00',v:'AT&T Stadium',c:'dallas',br:false},
+  {d:'2026-06-14',g:'E',t1:'🇨🇮 Costa do Marfim',t2:'🇪🇨 Equador',et:'19:00',brt:'20:00',v:'Lincoln Financial Field',c:'philly',br:false},
+  {d:'2026-06-14',g:'F',t1:'🇸🇪 Suécia',t2:'🇹🇳 Tunísia',et:'22:00',brt:'23:00',v:'Estadio BBVA',c:'monterrey',br:false},
+  {d:'2026-06-15',g:'H',t1:'🇪🇸 Espanha',t2:'🇨🇻 Cabo Verde',et:'12:00',brt:'13:00',v:'Mercedes-Benz Stadium',c:'atlanta',br:false},
+  {d:'2026-06-15',g:'G',t1:'🇧🇪 Bélgica',t2:'🇪🇬 Egito',et:'15:00',brt:'16:00',v:'Lumen Field',c:'seattle',br:false},
+  {d:'2026-06-15',g:'H',t1:'🇸🇦 Arábia Saudita',t2:'🇺🇾 Uruguai',et:'18:00',brt:'19:00',v:'Hard Rock Stadium',c:'miami',br:false},
+  {d:'2026-06-15',g:'G',t1:'🇮🇷 Irã',t2:'🇳🇿 Nova Zelândia',et:'21:00',brt:'22:00',v:'SoFi Stadium',c:'la',br:false},
+  {d:'2026-06-16',g:'I',t1:'🇫🇷 França',t2:'🇸🇳 Senegal',et:'15:00',brt:'16:00',v:'MetLife Stadium',c:'ny',br:false},
+  {d:'2026-06-16',g:'I',t1:'🇮🇶 Iraque',t2:'🇳🇴 Noruega',et:'18:00',brt:'19:00',v:'Gillette Stadium',c:'boston',br:false},
+  {d:'2026-06-16',g:'J',t1:'🇦🇷 Argentina',t2:'🇩🇿 Argélia',et:'21:00',brt:'22:00',v:'Arrowhead Stadium',c:'kc',br:false},
+  {d:'2026-06-17',g:'K',t1:'🇵🇹 Portugal',t2:'🇨🇩 Congo RD',et:'13:00',brt:'14:00',v:'NRG Stadium',c:'houston',br:false},
+  {d:'2026-06-17',g:'L',t1:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra',t2:'🇭🇷 Croácia',et:'16:00',brt:'17:00',v:'AT&T Stadium',c:'dallas',br:false},
+  {d:'2026-06-17',g:'L',t1:'🇬🇭 Gana',t2:'🇵🇦 Panamá',et:'19:00',brt:'20:00',v:'BMO Field',c:'toronto',br:false},
+  {d:'2026-06-17',g:'K',t1:'🇺🇿 Uzbequistão',t2:'🇨🇴 Colômbia',et:'22:00',brt:'23:00',v:'Estadio Ciudad de México',c:'mexico',br:false},
+  {d:'2026-06-18',g:'A',t1:'🇨🇿 Czechia',t2:'🇿🇦 África do Sul',et:'12:00',brt:'13:00',v:'Mercedes-Benz Stadium',c:'atlanta',br:false},
+  {d:'2026-06-18',g:'B',t1:'🇨🇭 Suíça',t2:'🇧🇦 Bósnia',et:'15:00',brt:'16:00',v:'SoFi Stadium',c:'la',br:false},
+  {d:'2026-06-18',g:'B',t1:'🇨🇦 Canadá',t2:'🇶🇦 Catar',et:'18:00',brt:'19:00',v:'BC Place',c:'vancouver',br:false},
+  {d:'2026-06-18',g:'A',t1:'🇲🇽 México',t2:'🇰🇷 Coreia do Sul',et:'21:00',brt:'22:00',v:'Estadio Akron',c:'guadalajara',br:false},
+  {d:'2026-06-19',g:'D',t1:'🇺🇸 EUA',t2:'🇦🇺 Austrália',et:'15:00',brt:'16:00',v:'Lumen Field',c:'seattle',br:false},
+  {d:'2026-06-19',g:'C',t1:'🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia',t2:'🇲🇦 Marrocos',et:'18:00',brt:'19:00',v:'Gillette Stadium',c:'boston',br:false},
+  {d:'2026-06-19',g:'C',t1:'🇧🇷 Brasil',t2:'🇭🇹 Haiti',et:'20:30',brt:'21:30',v:'Lincoln Financial Field',c:'philly',br:true},
+  {d:'2026-06-19',g:'D',t1:'🇹🇷 Turquia',t2:'🇵🇾 Paraguai',et:'23:00',brt:'00:00+1',v:"Levi's Stadium",c:'la',br:false},
+  {d:'2026-06-20',g:'F',t1:'🇳🇱 Holanda',t2:'🇸🇪 Suécia',et:'13:00',brt:'14:00',v:'NRG Stadium',c:'houston',br:false},
+  {d:'2026-06-20',g:'E',t1:'🇩🇪 Alemanha',t2:'🇨🇮 Costa do Marfim',et:'16:00',brt:'17:00',v:'BMO Field',c:'toronto',br:false},
+  {d:'2026-06-20',g:'E',t1:'🇪🇨 Equador',t2:'🇨🇼 Curaçao',et:'20:00',brt:'21:00',v:'Arrowhead Stadium',c:'kc',br:false},
+  {d:'2026-06-21',g:'H',t1:'🇪🇸 Espanha',t2:'🇸🇦 Arábia Saudita',et:'12:00',brt:'13:00',v:'Mercedes-Benz Stadium',c:'atlanta',br:false},
+  {d:'2026-06-21',g:'G',t1:'🇧🇪 Bélgica',t2:'🇮🇷 Irã',et:'15:00',brt:'16:00',v:'SoFi Stadium',c:'la',br:false},
+  {d:'2026-06-21',g:'H',t1:'🇺🇾 Uruguai',t2:'🇨🇻 Cabo Verde',et:'18:00',brt:'19:00',v:'Hard Rock Stadium',c:'miami',br:false},
+  {d:'2026-06-21',g:'G',t1:'🇳🇿 Nova Zelândia',t2:'🇪🇬 Egito',et:'21:00',brt:'22:00',v:'BC Place',c:'vancouver',br:false},
+  {d:'2026-06-22',g:'J',t1:'🇦🇷 Argentina',t2:'🇦🇹 Áustria',et:'13:00',brt:'14:00',v:'AT&T Stadium',c:'dallas',br:false},
+  {d:'2026-06-22',g:'I',t1:'🇫🇷 França',t2:'🇮🇶 Iraque',et:'17:00',brt:'18:00',v:'Lincoln Financial Field',c:'philly',br:false},
+  {d:'2026-06-22',g:'I',t1:'🇳🇴 Noruega',t2:'🇸🇳 Senegal',et:'20:00',brt:'21:00',v:'MetLife Stadium',c:'ny',br:false},
+  {d:'2026-06-22',g:'J',t1:'🇯🇴 Jordânia',t2:'🇩🇿 Argélia',et:'23:00',brt:'00:00+1',v:"Levi's Stadium",c:'la',br:false},
+  {d:'2026-06-23',g:'K',t1:'🇵🇹 Portugal',t2:'🇺🇿 Uzbequistão',et:'13:00',brt:'14:00',v:'NRG Stadium',c:'houston',br:false},
+  {d:'2026-06-23',g:'L',t1:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra',t2:'🇬🇭 Gana',et:'16:00',brt:'17:00',v:'Gillette Stadium',c:'boston',br:false},
+  {d:'2026-06-23',g:'L',t1:'🇵🇦 Panamá',t2:'🇭🇷 Croácia',et:'19:00',brt:'20:00',v:'BMO Field',c:'toronto',br:false},
+  {d:'2026-06-23',g:'K',t1:'🇨🇴 Colômbia',t2:'🇨🇩 Congo RD',et:'22:00',brt:'23:00',v:'Estadio Akron',c:'guadalajara',br:false},
+  {d:'2026-06-24',g:'B',t1:'🇨🇭 Suíça',t2:'🇨🇦 Canadá',et:'15:00',brt:'16:00',v:'BC Place',c:'vancouver',br:false},
+  {d:'2026-06-24',g:'B',t1:'🇧🇦 Bósnia',t2:'🇶🇦 Catar',et:'15:00',brt:'16:00',v:'Lumen Field',c:'seattle',br:false},
+  {d:'2026-06-24',g:'C',t1:'🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia',t2:'🇧🇷 Brasil',et:'18:00',brt:'19:00',v:'Hard Rock Stadium',c:'miami',br:true},
+  {d:'2026-06-24',g:'C',t1:'🇲🇦 Marrocos',t2:'🇭🇹 Haiti',et:'18:00',brt:'19:00',v:'Mercedes-Benz Stadium',c:'atlanta',br:false},
+  {d:'2026-06-24',g:'A',t1:'🇨🇿 Czechia',t2:'🇲🇽 México',et:'21:00',brt:'22:00',v:'Estadio Ciudad de México',c:'mexico',br:false},
+  {d:'2026-06-24',g:'A',t1:'🇿🇦 África do Sul',t2:'🇰🇷 Coreia do Sul',et:'21:00',brt:'22:00',v:'Estadio BBVA',c:'monterrey',br:false},
+  {d:'2026-06-25',g:'E',t1:'🇨🇼 Curaçao',t2:'🇨🇮 Costa do Marfim',et:'16:00',brt:'17:00',v:'Lincoln Financial Field',c:'philly',br:false},
+  {d:'2026-06-25',g:'E',t1:'🇪🇨 Equador',t2:'🇩🇪 Alemanha',et:'16:00',brt:'17:00',v:'MetLife Stadium',c:'ny',br:false},
+  {d:'2026-06-25',g:'F',t1:'🇯🇵 Japão',t2:'🇸🇪 Suécia',et:'19:00',brt:'20:00',v:'AT&T Stadium',c:'dallas',br:false},
+  {d:'2026-06-25',g:'F',t1:'🇹🇳 Tunísia',t2:'🇳🇱 Holanda',et:'19:00',brt:'20:00',v:'Arrowhead Stadium',c:'kc',br:false},
+  {d:'2026-06-25',g:'D',t1:'🇹🇷 Turquia',t2:'🇺🇸 EUA',et:'22:00',brt:'23:00',v:'SoFi Stadium',c:'la',br:false},
+  {d:'2026-06-25',g:'D',t1:'🇵🇾 Paraguai',t2:'🇦🇺 Austrália',et:'22:00',brt:'23:00',v:"Levi's Stadium",c:'la',br:false},
+  {d:'2026-06-26',g:'I',t1:'🇳🇴 Noruega',t2:'🇫🇷 França',et:'15:00',brt:'16:00',v:'Gillette Stadium',c:'boston',br:false},
+  {d:'2026-06-26',g:'I',t1:'🇸🇳 Senegal',t2:'🇮🇶 Iraque',et:'15:00',brt:'16:00',v:'BMO Field',c:'toronto',br:false},
+  {d:'2026-06-26',g:'H',t1:'🇨🇻 Cabo Verde',t2:'🇸🇦 Arábia Saudita',et:'20:00',brt:'21:00',v:'NRG Stadium',c:'houston',br:false},
+  {d:'2026-06-26',g:'H',t1:'🇺🇾 Uruguai',t2:'🇪🇸 Espanha',et:'20:00',brt:'21:00',v:'Estadio Akron',c:'guadalajara',br:false},
+  {d:'2026-06-26',g:'G',t1:'🇪🇬 Egito',t2:'🇮🇷 Irã',et:'23:00',brt:'00:00+1',v:'Lumen Field',c:'seattle',br:false},
+  {d:'2026-06-26',g:'G',t1:'🇳🇿 Nova Zelândia',t2:'🇧🇪 Bélgica',et:'23:00',brt:'00:00+1',v:'BC Place',c:'vancouver',br:false},
+  {d:'2026-06-27',g:'L',t1:'🇵🇦 Panamá',t2:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra',et:'17:00',brt:'18:00',v:'MetLife Stadium',c:'ny',br:false},
+  {d:'2026-06-27',g:'L',t1:'🇭🇷 Croácia',t2:'🇬🇭 Gana',et:'17:00',brt:'18:00',v:'Lincoln Financial Field',c:'philly',br:false},
+  {d:'2026-06-27',g:'K',t1:'🇨🇴 Colômbia',t2:'🇵🇹 Portugal',et:'19:30',brt:'20:30',v:'Hard Rock Stadium',c:'miami',br:false},
+  {d:'2026-06-27',g:'K',t1:'🇨🇩 Congo RD',t2:'🇺🇿 Uzbequistão',et:'19:30',brt:'20:30',v:'Mercedes-Benz Stadium',c:'atlanta',br:false},
+  {d:'2026-06-27',g:'J',t1:'🇩🇿 Argélia',t2:'🇦🇹 Áustria',et:'22:00',brt:'23:00',v:'Arrowhead Stadium',c:'kc',br:false},
+  {d:'2026-06-27',g:'J',t1:'🇯🇴 Jordânia',t2:'🇦🇷 Argentina',et:'22:00',brt:'23:00',v:'AT&T Stadium',c:'dallas',br:false},
+  {d:'2026-06-28',r:'Oitavas',t1:'2º A',t2:'2º B',et:'15:00',brt:'16:00',v:'SoFi Stadium',c:'la',br:false},
+  {d:'2026-06-29',r:'Oitavas',t1:'1º C',t2:'2º F',et:'13:00',brt:'14:00',v:'NRG Stadium',c:'houston',br:false},
+  {d:'2026-06-29',r:'Oitavas',t1:'1º E',t2:'3º A/B/C/D/F',et:'16:30',brt:'17:30',v:'Gillette Stadium',c:'boston',br:false},
+  {d:'2026-06-29',r:'Oitavas',t1:'1º F',t2:'2º C',et:'21:00',brt:'22:00',v:'Estadio BBVA',c:'monterrey',br:false},
+  {d:'2026-06-30',r:'Oitavas',t1:'2º E',t2:'2º I',et:'13:00',brt:'14:00',v:'AT&T Stadium',c:'dallas',br:false},
+  {d:'2026-06-30',r:'Oitavas',t1:'1º I',t2:'3º C/D/F/G/H',et:'17:00',brt:'18:00',v:'MetLife Stadium',c:'ny',br:false},
+  {d:'2026-06-30',r:'Oitavas',t1:'1º A',t2:'3º C/E/F/H/I',et:'21:00',brt:'22:00',v:'Estadio Ciudad de México',c:'mexico',br:false}
+];
+
+function fmtDate(s){
+  const dt=new Date(s+'T12:00:00');
+  return DAYS[dt.getDay()]+', '+dt.getDate()+' de '+MESES[dt.getMonth()];
+}
+function badgeCls(m){
+  if(m.r){if(m.r==='Oitavas')return 'badge-r32';if(m.r==='16avos')return 'badge-r16';if(m.r==='Quartas')return 'badge-qf';}
+  return 'badge-group';
+}
+function badgeTxt(m){return m.r?m.r:'Grupo '+m.g;}
+
+function renderCal(list){
+  const out=document.getElementById('cal-output');
+  const nr=document.getElementById('no-results');
+  if(!list.length){out.innerHTML='';nr.style.display='block';return;}
+  nr.style.display='none';
+  const byDay={};
+  list.forEach(m=>{if(!byDay[m.d])byDay[m.d]=[];byDay[m.d].push(m);});
+  let html='';
+  Object.keys(byDay).sort().forEach(day=>{
+    html+='<div class="cal-day-group"><div class="cal-day-label">'+fmtDate(day)+'</div>';
+    byDay[day].forEach(m=>{
+      const isMine=MY.includes(m.c);
+      const cls='cal-match'+(isMine?' my-city':'');
+      html+=`<div class="${cls}">
+        <div class="cal-time">
+          <div style="font-weight:500">${m.et} ET</div>
+          <div class="brt">🇧🇷 ${m.brt} BRT</div>
+        </div>
+        <div>
+          <div class="cal-match-name">${m.t1} × ${m.t2}${m.br?' 🔥':''}</div>
+          <div class="cal-match-venue">🏟 ${m.v}</div>
+          <div class="cal-match-city" style="${isMine?'color:var(--blue2);font-weight:500':''}">📍 ${CITY_NAMES[m.c]||m.c}${isMine?' ★':''}</div>
+        </div>
+        <div class="cal-badge-col"><span class="jogo-badge ${badgeCls(m)}">${badgeTxt(m)}</span></div>
+      </div>`;
+    });
+    html+='</div>';
+  });
+  out.innerHTML=html;
+}
+function filterCal(){
+  const from=document.getElementById('f-from').value;
+  const to=document.getElementById('f-to').value;
+  const city=document.getElementById('f-city').value;
+  renderCal(MATCHES.filter(m=>m.d>=from&&m.d<=to&&(!city||m.c===city)));
+}
+function resetCal(){
+  document.getElementById('f-from').value='2026-06-11';
+  document.getElementById('f-to').value='2026-06-30';
+  document.getElementById('f-city').value='';
+  renderCal(MATCHES);
+}
+renderCal(MATCHES);
 </script>
 </body>
 </html>
